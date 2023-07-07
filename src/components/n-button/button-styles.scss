@@ -1,0 +1,437 @@
+.n-button {
+    &--primary {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-primary-400);
+        --n-button-solid-bg-hover: var(--n-color-primary-500);
+        --n-button-solid-bg-active: var(--n-color-primary-600);
+        --n-button-solid-bg-disabled: var(--n-color-primary-200);
+        --n-button-solid-bg-loading: var(--n-color-primary-300);
+        --n-button-solid-text: #fff;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-primary-50);
+        --n-button-outline-bg-active: var(--n-color-primary-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-primary-50);
+        --n-button-outline-text: var(--n-color-primary-400);
+        --n-button-outline-outline: var(--n-color-primary-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-primary-50);
+        --n-button-text-bg-active: var(--n-color-primary-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-primary-50);
+        --n-button-text-text: var(--n-color-primary-400);
+    }
+
+    &--secondary {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-secondary-400);
+        --n-button-solid-bg-hover: var(--n-color-secondary-500);
+        --n-button-solid-bg-active: var(--n-color-secondary-600);
+        --n-button-solid-bg-disabled: var(--n-color-secondary-200);
+        --n-button-solid-bg-loading: var(--n-color-secondary-300);
+        --n-button-solid-text: #fff;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-secondary-50);
+        --n-button-outline-bg-active: var(--n-color-secondary-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-secondary-50);
+        --n-button-outline-text: var(--n-color-secondary-400);
+        --n-button-outline-outline: var(--n-color-secondary-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-secondary-50);
+        --n-button-text-bg-active: var(--n-color-secondary-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-secondary-50);
+        --n-button-text-text: var(--n-color-secondary-400);
+    }
+
+    &--success {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-success-400);
+        --n-button-solid-bg-hover: var(--n-color-success-500);
+        --n-button-solid-bg-active: var(--n-color-success-600);
+        --n-button-solid-bg-disabled: var(--n-color-success-200);
+        --n-button-solid-bg-loading: var(--n-color-success-300);
+        --n-button-solid-text: #fff;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-success-50);
+        --n-button-outline-bg-active: var(--n-color-success-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-success-50);
+        --n-button-outline-text: var(--n-color-success-400);
+        --n-button-outline-outline: var(--n-color-success-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-success-50);
+        --n-button-text-bg-active: var(--n-color-success-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-success-50);
+        --n-button-text-text: var(--n-color-success-400);
+    }
+
+    &--warning {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-warning-400);
+        --n-button-solid-bg-hover: var(--n-color-warning-500);
+        --n-button-solid-bg-active: var(--n-color-warning-600);
+        --n-button-solid-bg-disabled: var(--n-color-warning-200);
+        --n-button-solid-bg-loading: var(--n-color-warning-300);
+        --n-button-solid-text: #fff;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-warning-50);
+        --n-button-outline-bg-active: var(--n-color-warning-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-warning-50);
+        --n-button-outline-text: var(--n-color-warning-400);
+        --n-button-outline-outline: var(--n-color-warning-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-warning-50);
+        --n-button-text-bg-active: var(--n-color-warning-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-warning-50);
+        --n-button-text-text: var(--n-color-warning-400);
+    }
+
+    &--info {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-info-400);
+        --n-button-solid-bg-hover: var(--n-color-info-500);
+        --n-button-solid-bg-active: var(--n-color-info-600);
+        --n-button-solid-bg-disabled: var(--n-color-info-200);
+        --n-button-solid-bg-loading: var(--n-color-info-300);
+        --n-button-solid-text: #fff;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-info-50);
+        --n-button-outline-bg-active: var(--n-color-info-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-info-50);
+        --n-button-outline-text: var(--n-color-info-400);
+        --n-button-outline-outline: var(--n-color-info-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-info-50);
+        --n-button-text-bg-active: var(--n-color-info-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-info-50);
+        --n-button-text-text: var(--n-color-info-400);
+    }
+
+    &--danger {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-danger-400);
+        --n-button-solid-bg-hover: var(--n-color-danger-500);
+        --n-button-solid-bg-active: var(--n-color-danger-600);
+        --n-button-solid-bg-disabled: var(--n-color-danger-200);
+        --n-button-solid-bg-loading: var(--n-color-danger-300);
+        --n-button-solid-text: #fff;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-danger-50);
+        --n-button-outline-bg-active: var(--n-color-danger-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-danger-50);
+        --n-button-outline-text: var(--n-color-danger-400);
+        --n-button-outline-outline: var(--n-color-danger-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-danger-50);
+        --n-button-text-bg-active: var(--n-color-danger-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-danger-50);
+        --n-button-text-text: var(--n-color-danger-400);
+    }
+
+    &--light {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-light-400);
+        --n-button-solid-bg-hover: var(--n-color-light-500);
+        --n-button-solid-bg-active: var(--n-color-light-600);
+        --n-button-solid-bg-disabled: var(--n-color-light-200);
+        --n-button-solid-bg-loading: var(--n-color-light-300);
+        --n-button-solid-text: #222;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-light-50);
+        --n-button-outline-bg-active: var(--n-color-light-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-light-50);
+        --n-button-outline-text: var(--n-color-light-400);
+        --n-button-outline-outline: var(--n-color-light-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-light-50);
+        --n-button-text-bg-active: var(--n-color-light-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-light-50);
+        --n-button-text-text: var(--n-color-light-400);
+    }
+
+    &--dark {
+        // set colors for solid buttons
+        --n-button-solid-bg: var(--n-color-dark-400);
+        --n-button-solid-bg-hover: var(--n-color-dark-500);
+        --n-button-solid-bg-active: var(--n-color-dark-600);
+        --n-button-solid-bg-disabled: var(--n-color-dark-200);
+        --n-button-solid-bg-loading: var(--n-color-dark-300);
+        --n-button-solid-text: #fff;
+
+        // set colors for outline buttons
+        --n-button-outline-bg: transparent;
+        --n-button-outline-bg-hover: var(--n-color-dark-50);
+        --n-button-outline-bg-active: var(--n-color-dark-100);
+        --n-button-outline-bg-disabled: transparent;
+        --n-button-outline-bg-loading: var(--n-color-dark-50);
+        --n-button-outline-text: var(--n-color-dark-400);
+        --n-button-outline-outline: var(--n-color-dark-400);
+
+        // set colors for text buttons
+        --n-button-text-bg: transparent;
+        --n-button-text-bg-hover: var(--n-color-dark-50);
+        --n-button-text-bg-active: var(--n-color-dark-100);
+        --n-button-text-bg-disabled: transparent;
+        --n-button-text-bg-loading: var(--n-color-dark-50);
+        --n-button-text-text: var(--n-color-dark-400);
+    }
+}
+
+html.dark {
+    .n-button {
+        &--primary {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-primary-200);
+            --n-button-solid-bg-hover: var(--n-color-primary-300);
+            --n-button-solid-bg-active: var(--n-color-primary-400);
+            --n-button-solid-bg-disabled: var(--n-color-primary-50);
+            --n-button-solid-bg-loading: var(--n-color-primary-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-primary-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-primary-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-primary-50-transparent);
+            --n-button-outline-text: var(--n-color-primary-200);
+            --n-button-outline-outline: var(--n-color-primary-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-primary-50-transparent);
+            --n-button-text-bg-active: var(--n-color-primary-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-primary-50-transparent);
+            --n-button-text-text: var(--n-color-primary-200);
+        }
+
+        &--secondary {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-secondary-200);
+            --n-button-solid-bg-hover: var(--n-color-secondary-300);
+            --n-button-solid-bg-active: var(--n-color-secondary-400);
+            --n-button-solid-bg-disabled: var(--n-color-secondary-50-transparent);
+            --n-button-solid-bg-loading: var(--n-color-secondary-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-secondary-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-secondary-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-secondary-50-transparent);
+            --n-button-outline-text: var(--n-color-secondary-200);
+            --n-button-outline-outline: var(--n-color-secondary-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-secondary-50-transparent);
+            --n-button-text-bg-active: var(--n-color-secondary-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-secondary-50-transparent);
+            --n-button-text-text: var(--n-color-secondary-200);
+        }
+
+        &--success {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-success-200);
+            --n-button-solid-bg-hover: var(--n-color-success-300);
+            --n-button-solid-bg-active: var(--n-color-success-400);
+            --n-button-solid-bg-disabled: var(--n-color-success-50-transparent);
+            --n-button-solid-bg-loading: var(--n-color-success-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-success-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-success-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-success-50-transparent);
+            --n-button-outline-text: var(--n-color-success-200);
+            --n-button-outline-outline: var(--n-color-success-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-success-50-transparent);
+            --n-button-text-bg-active: var(--n-color-success-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-success-50-transparent);
+            --n-button-text-text: var(--n-color-success-200);
+        }
+
+        &--warning {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-warning-200);
+            --n-button-solid-bg-hover: var(--n-color-warning-300);
+            --n-button-solid-bg-active: var(--n-color-warning-400);
+            --n-button-solid-bg-disabled: var(--n-color-warning-50-transparent);
+            --n-button-solid-bg-loading: var(--n-color-warning-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-warning-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-warning-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-warning-50-transparent);
+            --n-button-outline-text: var(--n-color-warning-200);
+            --n-button-outline-outline: var(--n-color-warning-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-warning-50-transparent);
+            --n-button-text-bg-active: var(--n-color-warning-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-warning-50-transparent);
+            --n-button-text-text: var(--n-color-warning-200);
+        }
+
+        &--info {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-info-200);
+            --n-button-solid-bg-hover: var(--n-color-info-300);
+            --n-button-solid-bg-active: var(--n-color-info-400);
+            --n-button-solid-bg-disabled: var(--n-color-info-50-transparent);
+            --n-button-solid-bg-loading: var(--n-color-info-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-info-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-info-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-info-50-transparent);
+            --n-button-outline-text: var(--n-color-info-200);
+            --n-button-outline-outline: var(--n-color-info-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-info-50-transparent);
+            --n-button-text-bg-active: var(--n-color-info-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-info-50-transparent);
+            --n-button-text-text: var(--n-color-info-200);
+        }
+
+        &--danger {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-danger-200);
+            --n-button-solid-bg-hover: var(--n-color-danger-300);
+            --n-button-solid-bg-active: var(--n-color-danger-400);
+            --n-button-solid-bg-disabled: var(--n-color-danger-50-transparent);
+            --n-button-solid-bg-loading: var(--n-color-danger-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-danger-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-danger-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-danger-50-transparent);
+            --n-button-outline-text: var(--n-color-danger-200);
+            --n-button-outline-outline: var(--n-color-danger-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-danger-50-transparent);
+            --n-button-text-bg-active: var(--n-color-danger-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-danger-50-transparent);
+            --n-button-text-text: var(--n-color-danger-200);
+        }
+
+        &--light {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-light-200);
+            --n-button-solid-bg-hover: var(--n-color-light-300);
+            --n-button-solid-bg-active: var(--n-color-light-400);
+            --n-button-solid-bg-disabled: var(--n-color-light-50-transparent);
+            --n-button-solid-bg-loading: var(--n-color-light-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-light-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-light-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-light-50-transparent);
+            --n-button-outline-text: var(--n-color-light-200);
+            --n-button-outline-outline: var(--n-color-light-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-light-50-transparent);
+            --n-button-text-bg-active: var(--n-color-light-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-light-50-transparent);
+            --n-button-text-text: var(--n-color-light-200);
+        }
+
+        &--dark {
+            // set colors for solid buttons
+            --n-button-solid-bg: var(--n-color-dark-200);
+            --n-button-solid-bg-hover: var(--n-color-dark-300);
+            --n-button-solid-bg-active: var(--n-color-dark-400);
+            --n-button-solid-bg-disabled: var(--n-color-dark-50-transparent);
+            --n-button-solid-bg-loading: var(--n-color-dark-100);
+            --n-button-solid-text: #000;
+
+            // set colors for outline buttons
+            --n-button-outline-bg: transparent;
+            --n-button-outline-bg-hover: var(--n-color-dark-50-transparent);
+            --n-button-outline-bg-active: var(--n-color-dark-100-transparent);
+            --n-button-outline-bg-disabled: transparent;
+            --n-button-outline-bg-loading: var(--n-color-dark-50-transparent);
+            --n-button-outline-text: var(--n-color-dark-200);
+            --n-button-outline-outline: var(--n-color-dark-200);
+
+            // set colors for text buttons
+            --n-button-text-bg: transparent;
+            --n-button-text-bg-hover: var(--n-color-dark-50-transparent);
+            --n-button-text-bg-active: var(--n-color-dark-100-transparent);
+            --n-button-text-bg-disabled: transparent;
+            --n-button-text-bg-loading: var(--n-color-dark-50-transparent);
+            --n-button-text-text: var(--n-color-dark-200);
+        }
+    }
+}
