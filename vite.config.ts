@@ -11,15 +11,10 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'NethrenUI',
       fileName: 'nethren-ui',
-      formats: ['es', 'umd'],
+      formats: ['es'],
     },
     rollupOptions: {
       external: ['vue'],
-      output: {
-        globals: {
-          vue: 'Vue',
-        },
-      },
     },
   },
 })
