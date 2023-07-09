@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { StyleValue, computed, toRefs } from 'vue';
-import { isBuiltinColorName, type NColorPaletteKeyRaw } from "../../utils"
+import { isBuiltinColorName, type NComponentProps } from "../../utils"
 
-const props = withDefaults(defineProps<{
+
+interface NButtonProps extends NComponentProps {
     lable?: string,
-    color?: NColorPaletteKeyRaw,
     mode?: 'solid' | 'outline' | 'text',
     isLoading?: boolean,
     loadingText?: string,
-}>(), {
+}
+
+const props = withDefaults(defineProps<NButtonProps>(), {
     lable: undefined,
     color: 'primary',
     mode: 'solid',

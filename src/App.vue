@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { NButton } from "./components/n-button"
+import { NButton, NSwitch } from "./components"
 
 const isLoading = ref(false)
 const colorMode = ref<'light' | 'dark'>('light')
+
+
+const isEnabled = ref(false)
 
 watch(colorMode, () => {
     const htmlElement = document.querySelector('html')
@@ -14,6 +17,10 @@ watch(colorMode, () => {
             htmlElement.classList.remove('dark')
         }
     }
+})
+
+watch(isEnabled, () => {
+    console.log('isEnabled changed to', isEnabled.value)
 })
 
 
@@ -121,6 +128,38 @@ function setLoading() {
                 <n-button color="danger" :is-loading="isLoading" loading-text="Deleting" @click="setLoading">
                     Click to load with loading text
                 </n-button>
+            </div>
+        </div>
+    </section>
+    <section class="component-section">
+        <h2>Switches</h2>
+        <div class="component-section__category">
+            <h3>Color</h3>
+            <div class="component-section__gallery">
+                <n-switch id="switch-1" color="primary" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Primary
+                </n-switch>
+                <n-switch id="switch-2" color="secondary" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Secondary
+                </n-switch>
+                <n-switch id="switch-3" color="success" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Success
+                </n-switch>
+                <n-switch id="switch-4" color="warning" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Warning
+                </n-switch>
+                <n-switch id="switch-5" color="danger" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Danger
+                </n-switch>
+                <n-switch id="switch-6" color="info" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Info
+                </n-switch>
+                <n-switch id="switch-7" color="dark" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Dark
+                </n-switch>
+                <n-switch id="switch-8" color="light" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Light
+                </n-switch>
             </div>
         </div>
     </section>

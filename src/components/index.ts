@@ -1,4 +1,2 @@
-import { NButton, NButtonPlugin } from './n-button';
-
-export { NButton, NButtonPlugin };
-
+export * from "./n-button"
+export * from "./n-switch"
