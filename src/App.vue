@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { NButton, NSwitch } from "./components"
+import { NButton, NSwitch, NCheckbox } from "./components"
 
 const isLoading = ref(false)
 const colorMode = ref<'light' | 'dark'>('light')
@@ -160,6 +160,38 @@ function setLoading() {
                 <n-switch id="switch-8" color="light" ariaLabel="Enable this feature" v-model="isEnabled">
                     Light
                 </n-switch>
+            </div>
+        </div>
+    </section>
+    <section class="component-section">
+        <h2>Check boxes</h2>
+        <div class="component-section__category">
+            <h3>Color</h3>
+            <div class="component-section__gallery">
+                <n-checkbox id="switch-1" color="primary" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Primary
+                </n-checkbox>
+                <n-checkbox id="switch-2" color="secondary" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Secondary
+                </n-checkbox>
+                <n-checkbox id="switch-3" color="success" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Success
+                </n-checkbox>
+                <n-checkbox id="switch-4" color="warning" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Warning
+                </n-checkbox>
+                <n-checkbox id="switch-5" color="danger" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Danger
+                </n-checkbox>
+                <n-checkbox id="switch-6" color="info" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Info
+                </n-checkbox>
+                <n-checkbox id="switch-7" color="dark" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Dark
+                </n-checkbox>
+                <n-checkbox id="switch-8" color="light" ariaLabel="Enable this feature" v-model="isEnabled">
+                    Light
+                </n-checkbox>
             </div>
         </div>
     </section>

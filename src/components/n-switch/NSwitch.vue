@@ -6,6 +6,7 @@ interface NSwitchProps extends NComponentProps {
     modelValue: boolean,
     ariaLabel: string,
     id: string,
+    // TODO: add different sizes, disabled state, loading state
 }
 
 const props = withDefaults(defineProps<NSwitchProps>(), {
