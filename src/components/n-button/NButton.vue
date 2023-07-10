@@ -53,7 +53,7 @@ const computedStyle = computed<StyleValue>(() => {
 
 
 <template>
-    <button class="n-button" :class="[`n-button--${color}`, `n-button--${mode}`, isLoading ? 'n-button--loading' : '']"
+    <button class="n-button" :class="[`n--${color}`, `n-button--${color}`, `n-button--${mode}`, isLoading ? 'n-button--loading' : '']"
         :style="computedStyle">
         <circle-spinner v-if="isLoading" class="n-button__spinner" />
         <slot name="leftIcon" v-if="!isLoading" />
@@ -117,69 +117,69 @@ const computedStyle = computed<StyleValue>(() => {
     gap: 0.5rem;
 
     &--solid {
-        background-color: var(--n-button-solid-bg);
-        color: var(--n-button-solid-text);
+        background-color: var(--n-component-normal-bg-color);
+        color: var(--n-component-normal-text-color);
 
         &:hover {
-            background-color: var(--n-button-solid-bg-hover);
+            background-color: var(--n-component-hover-bg-color);
         }
 
         &:active {
-            background-color: var(--n-button-solid-bg-active);
+            background-color: var(--n-component-active-bg-color);
         }
 
         &:disabled {
-            background-color: var(--n-button-solid-bg-disabled);
+            background-color: var(--n-component-disabled-bg-color);
         }
 
         &.n-button--loading {
             cursor: not-allowed;
-            background-color: var(--n-button-solid-bg-loading);
+            background-color: var(--n-component-loading-bg-color);
         }
     }
 
     &--outline {
-        background-color: var(--n-button-outline-bg);
-        color: var(--n-button-outline-text);
-        border: 1px solid var(--n-button-outline-outline);
+        background-color: transparent;
+        color: var(--n-component-normal-bg-color);
+        border: 1px solid var(--n-component-normal-bg-color);
 
         &:hover {
-            background-color: var(--n-button-outline-bg-hover);
+            background-color: var(--n-component-outline-hover-bg-color);
         }
 
         &:active {
-            background-color: var(--n-button-outline-bg-active);
+            background-color: var(--n-component-outline-active-bg-color);
         }
 
         &:disabled {
-            background-color: var(--n-button-outline-bg-disabled);
+            background-color: transparent;
         }
 
         &.n-button--loading {
             cursor: not-allowed;
-            background-color: var(--n-button-outline-bg-loading);
+            background-color: var(--n-component-outline-hover-bg-color);
         }
     }
 
     &--text {
-        background-color: var(--n-button-text-bg);
-        color: var(--n-button-text-text);
+        background-color: transparent;
+        color: var(--n-component-normal-bg-color);
 
         &:hover {
-            background-color: var(--n-button-text-bg-hover);
+            background-color: var(--n-component-outline-hover-bg-color);
         }
 
         &:active {
-            background-color: var(--n-button-text-bg-active);
+            background-color: var(--n-component-outline-active-bg-color);
         }
 
         &:disabled {
-            background-color: var(--n-button-text-bg-disabled);
+            background-color: transparent;
         }
 
         &.n-button--loading {
             cursor: not-allowed;
-            background-color: var(--n-button-text-bg-loading);
+            background-color: var(--n-component-outline-hover-bg-color);
         }
     }
 

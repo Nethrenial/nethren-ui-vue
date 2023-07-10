@@ -1,0 +1,175 @@
+html {
+    --n-component-normal-text-color: var(--n-color-light-400);
+    --n-component-inactive-bg-color: var(--n-color-light-600);
+    --n-component-accessory-color: #fff;
+
+
+    .n--primary {
+        --n-component-normal-bg-color: var(--n-color-primary-400);
+        --n-component-hover-bg-color: var(--n-color-primary-500);
+        --n-component-active-bg-color: var(--n-color-primary-600);
+        --n-component-disabled-bg-color: var(--n-color-primary-200);
+        --n-component-loading-bg-color: var(--n-color-primary-400);
+        --n-component-outline-hover-bg-color: var(--n-color-primary-50);
+        --n-component-outline-active-bg-color: var(--n-color-primary-100);
+    }
+
+    .n--secondary {
+        --n-component-normal-bg-color: var(--n-color-secondary-400);
+        --n-component-hover-bg-color: var(--n-color-secondary-500);
+        --n-component-active-bg-color: var(--n-color-secondary-600);
+        --n-component-disabled-bg-color: var(--n-color-secondary-200);
+        --n-component-loading-bg-color: var(--n-color-secondary-400);
+        --n-component-outline-hover-bg-color: var(--n-color-secondary-50);
+        --n-component-outline-active-bg-color: var(--n-color-secondary-100);
+    }
+
+    .n--success {
+        --n-component-normal-bg-color: var(--n-color-success-400);
+        --n-component-hover-bg-color: var(--n-color-success-500);
+        --n-component-active-bg-color: var(--n-color-success-600);
+        --n-component-disabled-bg-color: var(--n-color-success-200);
+        --n-component-loading-bg-color: var(--n-color-success-400);
+        --n-component-outline-hover-bg-color: var(--n-color-success-50);
+        --n-component-outline-active-bg-color: var(--n-color-success-100);
+    }
+
+    .n--warning {
+        --n-component-normal-bg-color: var(--n-color-warning-400);
+        --n-component-hover-bg-color: var(--n-color-warning-500);
+        --n-component-active-bg-color: var(--n-color-warning-600);
+        --n-component-disabled-bg-color: var(--n-color-warning-200);
+        --n-component-loading-bg-color: var(--n-color-warning-400);
+        --n-component-outline-hover-bg-color: var(--n-color-warning-50);
+        --n-component-outline-active-bg-color: var(--n-color-warning-100);
+    }
+
+    .n--info {
+        --n-component-normal-bg-color: var(--n-color-info-400);
+        --n-component-hover-bg-color: var(--n-color-info-500);
+        --n-component-active-bg-color: var(--n-color-info-600);
+        --n-component-disabled-bg-color: var(--n-color-info-200);
+        --n-component-loading-bg-color: var(--n-color-info-400);
+        --n-component-outline-hover-bg-color: var(--n-color-info-50);
+        --n-component-outline-active-bg-color: var(--n-color-info-100);
+    }
+
+    .n--danger {
+        --n-component-normal-bg-color: var(--n-color-danger-400);
+        --n-component-hover-bg-color: var(--n-color-danger-500);
+        --n-component-active-bg-color: var(--n-color-danger-600);
+        --n-component-disabled-bg-color: var(--n-color-danger-200);
+        --n-component-loading-bg-color: var(--n-color-danger-400);
+        --n-component-outline-hover-bg-color: var(--n-color-danger-50);
+        --n-component-outline-active-bg-color: var(--n-color-danger-100);
+    }
+
+    .n--light {
+        // --n-component-normal-text-color: var(--n-color-dark-400);
+        --n-component-normal-bg-color: var(--n-color-light-400);
+        --n-component-hover-bg-color: var(--n-color-light-500);
+        --n-component-active-bg-color: var(--n-color-light-600);
+        --n-component-disabled-bg-color: var(--n-color-light-200);
+        --n-component-loading-bg-color: var(--n-color-light-400);
+        --n-component-outline-hover-bg-color: var(--n-color-light-50);
+        --n-component-outline-active-bg-color: var(--n-color-light-100);
+    }
+
+    .n--dark {
+        --n-component-normal-bg-color: var(--n-color-dark-400);
+        --n-component-hover-bg-color: var(--n-color-dark-500);
+        --n-component-active-bg-color: var(--n-color-dark-600);
+        --n-component-disabled-bg-color: var(--n-color-dark-200);
+        --n-component-loading-bg-color: var(--n-color-dark-400);
+        --n-component-outline-hover-bg-color: var(--n-color-dark-50);
+        --n-component-outline-active-bg-color: var(--n-color-dark-100);
+    }
+
+    &.dark {
+        --n-component-inactive-bg-color: #343237;
+        --n-component-normal-text-color: var(--n-color-dark-400);
+        --n-component-accessory-color: #121212;
+
+
+        .n--primary {
+            --n-component-normal-bg-color: var(--n-color-primary-200);
+            --n-component-hover-bg-color: var(--n-color-primary-300);
+            --n-component-active-bg-color: var(--n-color-primary-400);
+            --n-component-disabled-bg-color: var(--n-color-primary-50);
+            --n-component-loading-bg-color: var(--n-color-primary-100);
+            --n-component-outline-hover-bg-color: var(--n-color-primary-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-primary-100-transparent);
+        }
+
+        .n-secondary {
+            --n-component-normal-bg-color: var(--n-color-secondary-200);
+            --n-component-hover-bg-color: var(--n-color-secondary-300);
+            --n-component-active-bg-color: var(--n-color-secondary-400);
+            --n-component-disabled-bg-color: var(--n-color-secondary-50);
+            --n-component-loading-bg-color: var(--n-color-secondary-100);
+            --n-component-outline-hover-bg-color: var(--n-color-secondary-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-secondary-100-transparent);
+        }
+
+        .n--success {
+            --n-component-normal-bg-color: var(--n-color-success-200);
+            --n-component-hover-bg-color: var(--n-color-success-300);
+            --n-component-active-bg-color: var(--n-color-success-400);
+            --n-component-disabled-bg-color: var(--n-color-success-50);
+            --n-component-loading-bg-color: var(--n-color-success-100);
+            --n-component-outline-hover-bg-color: var(--n-color-success-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-success-100-transparent);
+        }
+
+        .n--warning {
+            --n-component-normal-bg-color: var(--n-color-warning-200);
+            --n-component-hover-bg-color: var(--n-color-warning-300);
+            --n-component-active-bg-color: var(--n-color-warning-400);
+            --n-component-disabled-bg-color: var(--n-color-warning-50);
+            --n-component-loading-bg-color: var(--n-color-warning-100);
+            --n-component-outline-hover-bg-color: var(--n-color-warning-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-warning-100-transparent);
+        }
+
+        .n--info {
+            --n-component-normal-bg-color: var(--n-color-info-200);
+            --n-component-hover-bg-color: var(--n-color-info-300);
+            --n-component-active-bg-color: var(--n-color-info-400);
+            --n-component-disabled-bg-color: var(--n-color-info-50);
+            --n-component-loading-bg-color: var(--n-color-info-100);
+            --n-component-outline-hover-bg-color: var(--n-color-info-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-info-100-transparent);
+        }
+
+        .n--danger {
+            --n-component-normal-bg-color: var(--n-color-danger-200);
+            --n-component-hover-bg-color: var(--n-color-danger-300);
+            --n-component-active-bg-color: var(--n-color-danger-400);
+            --n-component-disabled-bg-color: var(--n-color-danger-50);
+            --n-component-loading-bg-color: var(--n-color-danger-100);
+            --n-component-outline-hover-bg-color: var(--n-color-danger-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-danger-100-transparent);
+        }
+
+        .n--light {
+            --n-component-normal-bg-color: var(--n-color-light-200);
+            --n-component-hover-bg-color: var(--n-color-light-300);
+            --n-component-active-bg-color: var(--n-color-light-400);
+            --n-component-disabled-bg-color: var(--n-color-light-50);
+            --n-component-loading-bg-color: var(--n-color-light-100);
+            --n-component-outline-hover-bg-color: var(--n-color-light-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-light-100-transparent);
+        }
+
+        .n--dark {
+            --n-component-normal-text-color: var(--n-color-light-400);
+            --n-component-normal-bg-color: var(--n-color-dark-200);
+            --n-component-hover-bg-color: var(--n-color-dark-300);
+            --n-component-active-bg-color: var(--n-color-dark-400);
+            --n-component-disabled-bg-color: var(--n-color-dark-50);
+            --n-component-loading-bg-color: var(--n-color-dark-100);
+            --n-component-outline-hover-bg-color: var(--n-color-dark-50-transparent);
+            --n-component-outline-active-bg-color: var(--n-color-dark-100-transparent);
+        }
+    }
+}

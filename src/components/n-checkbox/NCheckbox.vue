@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, toRefs } from "vue";
+import { ref, toRefs } from "vue";
 import type { NComponentProps } from "../../utils"
 import AnimatedCheckmark from "../builin-icons/AnimatedCheckmark.vue"
 
@@ -43,12 +43,12 @@ function endHold() {
 
 <template>
     <label class="n-checkbox"
-        :class="[`n-checkbox--${color}`, modelValue ? `n-checkbox--checked` : ``, isCheckboxHolding ? `n-checkbox--hold` : ``]"
+        :class="[`n--${color}`, `n-checkbox--${color}`, modelValue ? `n-checkbox--checked` : ``, isCheckboxHolding ? `n-checkbox--hold` : ``]"
         tabindex="0" role="switch" :aria-label="ariaLabel" :aria-checked="modelValue" @keydown.enter="toggleCheckbox"
         @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleCheckbox" @click="toggleCheckbox"
         @mousedown="startHold" @mouseup="endHold">
-        <AnimatedCheckmark class="n-checkbox__check" v-if="modelValue"
-            :stroke-color="color === 'light' ? '#19181c' : 'var(--n-checkbox-check-bg)'" />
+        <AnimatedCheckmark class="n-checkbox__check" :class="!modelValue ? 'reverse' : ''" v-if="modelValue"
+            stroke-color="var(--n-component-normal-text-color)" />
         <input type="checkbox" class="n-checkbox__input" :id="id" :name="name" aria-invalid="false" aria-disabled="false"
             disabled :value="modelValue">
     </label>
@@ -62,7 +62,7 @@ function endHold() {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 7px;
-    background-color: var(--n-checkbox-bg);
+    background-color: var(--n-component-inactive-bg-color);
     position: relative;
     transition: all 200ms;
     cursor: pointer;
@@ -79,14 +79,14 @@ function endHold() {
         border-radius: 7px;
         transform-origin: left top;
         transform: scale(0.6) translate(-50%, -50%);
-        background-color: var(--n-checkbox-bg);
+        background-color: var(--n-component-inactive-bg-color);
         transition: all 200ms;
         z-index: -1;
     }
 
     &--checked {
         &::after {
-            background-color: var(--n-checkbox-bg-checked);
+            background-color: var(--n-component-normal-bg-color);
             transform: scale(1) translate(-50%, -50%);
         }
     }

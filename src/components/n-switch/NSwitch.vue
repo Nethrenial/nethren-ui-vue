@@ -56,7 +56,7 @@ const switchHoldModiefier = computed(() => {
 
 <template>
     <label class="n-switch"
-        :class="[`n-switch--${color}`, modelValue ? `n-switch--checked` : ``, isSwitchHolding ? `n-switch--hold` : ``, switchHoldModiefier]"
+        :class="[`n--${color}`,`n-switch--${color}`, modelValue ? `n-switch--checked` : ``, isSwitchHolding ? `n-switch--hold` : ``, switchHoldModiefier]"
         tabindex="0" role="switch" :aria-label="ariaLabel" :aria-checked="modelValue" @keydown.enter="toggleSwitch"
         @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleSwitch" @click="toggleSwitch"
         @mousedown="startHold" @mouseup="endHold">
@@ -73,7 +73,7 @@ const switchHoldModiefier = computed(() => {
 .n-switch {
     position: relative;
     display: inline-block;
-    background-color: var(--n-switch-bg);
+    background-color: var(--n-component-inactive-bg-color);
     border-radius: 1.3rem;
     height: 1.8rem;
     width: 3rem;
@@ -92,7 +92,7 @@ const switchHoldModiefier = computed(() => {
         transform: translateX(-100%);
         transition: all 200ms;
         border-radius: 1.3rem;
-        background-color: var(--n-switch-bg-checked);
+        background-color: var(--n-component-normal-bg-color);
         z-index: -1;
     }
 
@@ -131,7 +131,7 @@ const switchHoldModiefier = computed(() => {
         height: 1.3rem;
         width: 1.3rem;
         border-radius: 0.65rem;
-        background-color: var(--n-switch-thumb-bg);
+        background-color: var(--n-component-accessory-color);
 
         transform-origin: 0% 50%;
 

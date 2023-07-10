@@ -17,20 +17,30 @@ const { strokeColor } = toRefs(props)
 
 
 <style scoped lang="scss">
-path {
-    stroke-width: 0.75em;
-    /* Adjust the stroke width as per your preference */
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    stroke-linecap: round;
-    // make bends rounded
-    stroke-linejoin: round;
-    /* Rounded corners */
-    animation: checkmark 200ms ease-in-out forwards;
-    animation-delay: 200ms;
-    // stroke color white
-    stroke: v-bind(strokeColor);
+svg {
+    path {
+        stroke-width: 0.75em;
+        /* Adjust the stroke width as per your preference */
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        stroke-linecap: round;
+        // make bends rounded
+        stroke-linejoin: round;
+        /* Rounded corners */
+        animation: checkmark 200ms ease-in-out forwards;
+        animation-delay: 200ms;
+        // stroke color white
+        stroke: v-bind(strokeColor);
+    }
+
+    &.reverse {
+        path {
+            animation: checkmark 200ms ease-in-out reverse forwards;
+            animation-delay: 200ms;
+        }
+    }
 }
+
 
 @keyframes checkmark {
     to {
