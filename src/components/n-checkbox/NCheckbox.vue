@@ -47,7 +47,7 @@ function endHold() {
         tabindex="0" role="switch" :aria-label="ariaLabel" :aria-checked="modelValue" @keydown.enter="toggleCheckbox"
         @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleCheckbox" @click="toggleCheckbox"
         @mousedown="startHold" @mouseup="endHold">
-        <AnimatedCheckmark class="n-checkbox__check" :class="!modelValue ? 'reverse' : ''" v-if="modelValue"
+        <AnimatedCheckmark class="n-checkbox__check" v-if="modelValue"
             stroke-color="var(--n-component-normal-text-color)" />
         <input type="checkbox" class="n-checkbox__input" :id="id" :name="name" aria-invalid="false" aria-disabled="false"
             disabled :value="modelValue">

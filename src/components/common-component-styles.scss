@@ -2,12 +2,12 @@ html {
     --n-component-normal-text-color: var(--n-color-light-400);
     --n-component-inactive-bg-color: var(--n-color-light-600);
     --n-component-accessory-color: #fff;
-
+    --n-component-border-color: rgba(0, 0, 0, 0.2);
 
     .n--primary {
         --n-component-normal-bg-color: var(--n-color-primary-400);
         --n-component-hover-bg-color: var(--n-color-primary-500);
-        --n-component-active-bg-color: var(--n-color-primary-600);
+--n-component-active-bg-color           : var(--n-color-primary-600);
         --n-component-disabled-bg-color: var(--n-color-primary-200);
         --n-component-loading-bg-color: var(--n-color-primary-400);
         --n-component-outline-hover-bg-color: var(--n-color-primary-50);
@@ -89,7 +89,7 @@ html {
         --n-component-inactive-bg-color: #343237;
         --n-component-normal-text-color: var(--n-color-dark-400);
         --n-component-accessory-color: #121212;
-
+        --n-component-border-color: rgba(255, 255, 255, 0.2);
 
         .n--primary {
             --n-component-normal-bg-color: var(--n-color-primary-200);

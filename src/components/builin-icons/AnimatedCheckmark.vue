@@ -32,13 +32,6 @@ svg {
         // stroke color white
         stroke: v-bind(strokeColor);
     }
-
-    &.reverse {
-        path {
-            animation: checkmark 200ms ease-in-out reverse forwards;
-            animation-delay: 200ms;
-        }
-    }
 }
 
 

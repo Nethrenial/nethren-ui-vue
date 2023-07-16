@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { NButton, NSwitch, NCheckbox } from "./components"
+import { NButton, NSwitch, NCheckbox, NInput } from "./components"
 
 const isLoading = ref(false)
 const colorMode = ref<'light' | 'dark'>('light')
@@ -35,6 +35,10 @@ function setLoading() {
     }, 2000)
 }
 
+const inputs = ref({
+    input1: '',
+})
+
 </script>
 
 
@@ -45,6 +49,21 @@ function setLoading() {
         }} mode
     </n-button>
     <h1>Components Showcase</h1>
+    <section class="component-section">
+        <h2>Inputs</h2>
+        <div class="component-section__category">
+            <h3>{{ inputs.input1 }}</h3>
+            <div class="component-section__gallery">
+                <n-input v-model="inputs.input1" label="Input 1" id="input-1" name="input-1" type="text" :errors="['Username must be available']" />
+                <n-input v-model="inputs.input1" label="Input 2" id="input-2" name="input-2" type="number"
+                    color="secondary" />
+                <n-input v-model="inputs.input1" label="Input 3" id="input-3" name="input-3" color="success" />
+                <n-input v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" color="danger" />
+                <n-input v-model="inputs.input1" label="Input 5" id="input-5" name="input-5" color="warning" />
+                <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" color="info" />
+            </div>
+        </div>
+    </section>
     <section class="component-section">
         <h2>Buttons</h2>
         <div class="component-section__category">
@@ -168,28 +187,29 @@ function setLoading() {
         <div class="component-section__category">
             <h3>Color</h3>
             <div class="component-section__gallery">
-                <n-checkbox id="switch-1" color="primary" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-1" color="primary" ariaLabel="Enable this feature" v-model="isEnabled">
                     Primary
                 </n-checkbox>
-                <n-checkbox id="switch-2" color="secondary" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-2" color="secondary" ariaLabel="Enable this feature"
+                    v-model="isEnabled">
                     Secondary
                 </n-checkbox>
-                <n-checkbox id="switch-3" color="success" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-3" color="success" ariaLabel="Enable this feature" v-model="isEnabled">
                     Success
                 </n-checkbox>
-                <n-checkbox id="switch-4" color="warning" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-4" color="warning" ariaLabel="Enable this feature" v-model="isEnabled">
                     Warning
                 </n-checkbox>
-                <n-checkbox id="switch-5" color="danger" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-5" color="danger" ariaLabel="Enable this feature" v-model="isEnabled">
                     Danger
                 </n-checkbox>
-                <n-checkbox id="switch-6" color="info" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-6" color="info" ariaLabel="Enable this feature" v-model="isEnabled">
                     Info
                 </n-checkbox>
-                <n-checkbox id="switch-7" color="dark" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-7" color="dark" ariaLabel="Enable this feature" v-model="isEnabled">
                     Dark
                 </n-checkbox>
-                <n-checkbox id="switch-8" color="light" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-8" color="light" ariaLabel="Enable this feature" v-model="isEnabled">
                     Light
                 </n-checkbox>
             </div>
