@@ -1,18 +1,47 @@
-# Vue 3 + TypeScript + Vite
+# Nethren-UI (Vue 3 version)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Nethren UI is component library built from ground for vue and react.
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Built with typescript
+- Fully customizable color pallete
+- User friendly and accessible components
 
-## Type Support For `.vue` Imports in TS
+## What's the inspiration
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+This project was inspired from several component librarie, mainly Chakra UI and Vuesax 4.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Currently vue 3 version is in development and you can install the alpha version from here.
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+```bash
+npm install @nethren-ui/vue
+# or
+yarn add @nethren-ui/vue
+#or
+pnpm add @nethren-ui/vue
+```
+
+After that, all you have to do to setup it is, call the ```setColorPallete``` function (either in app.vue or main.js/ts) and import the css file.
+
+```ts
+// in main.ts or in App.vue script(script setup or legacy) block
+import {setColorPallete} from '@nethren-ui/vue';
+import "@nethren-ui/vue/dist/style.css";
+
+// call the function
+setColorPallete();
+```
+
+And in each individula SFC component, you can import the relevant component directly (tree-shakable) and use it.
+
+```ts
+<script setup lang="ts">
+import { NButton } from '@nethren-ui/vue'
+</script>
+
+<template>
+    <NButton>Button 1</NButton>
+    <n-button>This one also works</n-button>
+</template>
+```
