@@ -1,7 +1,7 @@
 {
     "name": "@nethren-ui/vue",
     "description": "A Customizable Vue 3 UI Toolkit built with TypeScript",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "main": "./dist/nethren-ui.js",
     "module": "./dist/nethren-ui.js",
     "keywords": [
