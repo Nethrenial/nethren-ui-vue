@@ -54,13 +54,14 @@ const inputs = ref({
         <div class="component-section__category">
             <h3>{{ inputs.input1 }}</h3>
             <div class="component-section__gallery">
-                <n-input v-model="inputs.input1" label="Input 1" id="input-1" name="input-1" type="text" :errors="['Username must be available']" />
+                <n-input v-model="inputs.input1" label="Input 1" id="input-1" name="input-1" type="text"
+                    :errors="['Username must be available']" />
                 <n-input v-model="inputs.input1" label="Input 2" id="input-2" name="input-2" type="number"
                     color="secondary" />
-                <n-input v-model="inputs.input1" label="Input 3" id="input-3" name="input-3" color="success" />
-                <n-input v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" color="danger" />
-                <n-input v-model="inputs.input1" label="Input 5" id="input-5" name="input-5" color="warning" />
-                <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" color="info" />
+                <n-input v-model="inputs.input1" label="Input 3" id="input-3" name="input-3" />
+                <n-input v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" />
+                <n-input v-model="inputs.input1" label="Input 5" id="input-5" name="input-5" />
+                <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" type="password" :with-visibility-toggle="true" />
             </div>
         </div>
     </section>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { toRefs } from "vue";
+import { toRefs, ref } from "vue";
 import type { NComponentProps } from "../../utils"
+import OpenEye from "../builin-icons/OpenEye.vue";
+import ClosedEye from "../builin-icons/ClosedEye.vue"
 
 interface NInputProps extends NComponentProps {
     modelValue: string | number,
@@ -10,6 +12,7 @@ interface NInputProps extends NComponentProps {
     placeholder?: string,
     disabled?: boolean,
     type?: 'text' | 'number' | 'password' | 'email' | 'tel' | 'url' | 'search' | 'date' | 'time',
+    withVisibilityToggle?: boolean,
     errors?: string[],
     required?: boolean,
 }
@@ -22,11 +25,12 @@ const props = withDefaults(defineProps<NInputProps>(),
         placeholder: undefined,
         disabled: false,
         type: 'text',
-        required: true
+        required: true,
+        withVisibilityToggle: false,
     })
 
 
-const { modelValue, id, name, label, placeholder, disabled, type, errors, required } = toRefs(props)
+const { modelValue, id, name, label, placeholder, disabled, type, errors, required, withVisibilityToggle } = toRefs(props)
 
 const emit = defineEmits<{
     'update:modelValue': [value: string | number]
@@ -38,6 +42,13 @@ function onChange(event: Event) {
 }
 
 
+const passwordVisibility = ref(false)
+
+function togglePasswordVisibility() {
+    passwordVisibility.value = !passwordVisibility.value
+}
+
+
 </script>
 
 <template>
@@ -45,14 +56,16 @@ function onChange(event: Event) {
         <label :for="id" class="n-input__label" v-if='label'>{{ label }}
             <sup v-if="required" class="n-input__required-indicator">*</sup>
         </label>
-        <input :type="type" :name="name" :id="id" :value="modelValue" :placeholder="placeholder" :disabled="disabled"
-            class="n-input__input" @change="onChange" @input="onChange">
+        <input :type="passwordVisibility ? 'text' : type" :name="name" :id="id" :value="modelValue"
+            :placeholder="placeholder" :disabled="disabled" class="n-input__input" @change="onChange" @input="onChange">
         <div v-if="errors && errors.length > 0">
             <span class="n-input__error">{{ errors[0] }}</span>
         </div>
+        <button type="button" class="n-input__visibility" v-if="withVisibilityToggle" @click="togglePasswordVisibility">
+            <open-eye v-if="passwordVisibility" />
+            <closed-eye v-else />
+        </button>
     </div>
-    <label>
-    </label>
 </template>
 
 
@@ -63,6 +76,7 @@ function onChange(event: Event) {
 
     display: flex;
     flex-direction: column;
+    position: relative;
 
     &__input {
         font-family: inherit;
@@ -110,6 +124,20 @@ function onChange(event: Event) {
         font-size: 0.75rem;
         font-weight: 500;
         line-height: 1rem;
+    }
+
+    &__visibility {
+        position: absolute;
+        right: 1px;
+        top: calc(50% - 0.35rem);
+        width: 40px;
+        border: none;
+        background-color: var(--n-component-inactive-bg-color);
+        cursor: pointer;
+        outline: none;
+        height: 40px;
+        border-radius: 0 0.375rem 0.375rem 0;
+        font-size: 1.25rem;
     }
 }
 </style>
