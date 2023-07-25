@@ -2,10 +2,13 @@
 import { computed, ref, toRefs } from 'vue';
 import { type NComponentProps } from "../../utils"
 
+
+defineOptions({
+    inheritAttrs: false
+})
+
 interface NSwitchProps extends NComponentProps {
     modelValue: boolean,
-    ariaLabel: string,
-    id: string,
     // TODO: add different sizes, disabled state, loading state
 }
 
@@ -13,7 +16,7 @@ const props = withDefaults(defineProps<NSwitchProps>(), {
     color: 'primary'
 })
 
-const { modelValue, ariaLabel, color, id } = toRefs(props)
+const { modelValue, color } = toRefs(props)
 
 const emit = defineEmits<{
     'update:modelValue': [value: boolean]
@@ -44,7 +47,7 @@ function endHold() {
     isSwitchHolding.value = false
 }
 
-const switchHoldModiefier = computed(() => {
+const switchHoldModifier = computed(() => {
     if (isSwitchHolding.value) {
         return `n-switch--hold-${switchHoldDirection.value}`
     }
@@ -56,12 +59,12 @@ const switchHoldModiefier = computed(() => {
 
 <template>
     <label class="n-switch"
-        :class="[`n--${color}`,`n-switch--${color}`, modelValue ? `n-switch--checked` : ``, isSwitchHolding ? `n-switch--hold` : ``, switchHoldModiefier]"
-        tabindex="0" role="switch" :aria-label="ariaLabel" :aria-checked="modelValue" @keydown.enter="toggleSwitch"
-        @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleSwitch" @click="toggleSwitch"
-        @mousedown="startHold" @mouseup="endHold">
-        <input type="checkbox" class="n-switch__input" :id="id" aria-invalid="false" aria-disabled="false" disabled
-            :value="modelValue">
+        :class="[`n--${color}`, `n-switch--${color}`, modelValue ? `n-switch--checked` : ``, isSwitchHolding ? `n-switch--hold` : ``, switchHoldModifier]"
+        tabindex="0" role="switch" :aria-label="($attrs['aria-label'] as string)" :aria-checked="modelValue"
+        @keydown.enter="toggleSwitch" @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleSwitch"
+        @click="toggleSwitch" @mousedown="startHold" @mouseup="endHold" :for="($attrs['id'] as string)">
+        <input type="checkbox" class="n-switch__input" aria-invalid="false" aria-disabled="false" disabled
+            :value="modelValue" v-bind="$attrs">
         <span class="n-switch__thumb"></span>
     </label>
 </template>

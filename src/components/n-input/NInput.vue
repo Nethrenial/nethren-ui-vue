@@ -4,17 +4,16 @@ import type { NComponentProps } from "../../utils"
 import OpenEye from "../builin-icons/OpenEye.vue";
 import ClosedEye from "../builin-icons/ClosedEye.vue"
 
+defineOptions({
+    inheritAttrs: false,
+})
+
 interface NInputProps extends NComponentProps {
     modelValue: string | number,
-    id: string,
-    name: string,
-    label?: string,
-    placeholder?: string,
-    disabled?: boolean,
     type?: 'text' | 'number' | 'password' | 'email' | 'tel' | 'url' | 'search' | 'date' | 'time',
     withVisibilityToggle?: boolean,
     errors?: string[],
-    required?: boolean,
+    label?: string,
 }
 
 
@@ -30,7 +29,7 @@ const props = withDefaults(defineProps<NInputProps>(),
     })
 
 
-const { modelValue, id, name, label, placeholder, disabled, type, errors, required, withVisibilityToggle } = toRefs(props)
+const { modelValue, label, type, errors, required, withVisibilityToggle } = toRefs(props)
 
 const emit = defineEmits<{
     'update:modelValue': [value: string | number]
@@ -53,11 +52,11 @@ function togglePasswordVisibility() {
 
 <template>
     <div class="n-input" :class="[`n--${color}`, `n-input--${color}`]">
-        <label :for="id" class="n-input__label" v-if='label'>{{ label }}
+        <label :for="($attrs['id'] as string)" class="n-input__label" v-if='label'>{{ label }}
             <sup v-if="required" class="n-input__required-indicator">*</sup>
         </label>
-        <input :type="passwordVisibility ? 'text' : type" :name="name" :id="id" :value="modelValue"
-            :placeholder="placeholder" :disabled="disabled" class="n-input__input" @change="onChange" @input="onChange">
+        <input :type="passwordVisibility ? 'text' : type" :value="modelValue" class="n-input__input" @change="onChange"
+            @input="onChange" v-bind="$attrs">
         <div v-if="errors && errors.length > 0">
             <span class="n-input__error">{{ errors[0] }}</span>
         </div>

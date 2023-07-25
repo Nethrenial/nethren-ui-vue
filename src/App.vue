@@ -156,28 +156,28 @@ const inputs = ref({
         <div class="component-section__category">
             <h3>Color</h3>
             <div class="component-section__gallery">
-                <n-switch id="switch-1" color="primary" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-1" color="primary" aria-label="Enable this feature" v-model="isEnabled">
                     Primary
                 </n-switch>
-                <n-switch id="switch-2" color="secondary" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-2" color="secondary" aria-label="Enable this feature" v-model="isEnabled">
                     Secondary
                 </n-switch>
-                <n-switch id="switch-3" color="success" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-3" color="success" aria-label="Enable this feature" v-model="isEnabled">
                     Success
                 </n-switch>
-                <n-switch id="switch-4" color="warning" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-4" color="warning" aria-label="Enable this feature" v-model="isEnabled">
                     Warning
                 </n-switch>
-                <n-switch id="switch-5" color="danger" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-5" color="danger" aria-label="Enable this feature" v-model="isEnabled">
                     Danger
                 </n-switch>
-                <n-switch id="switch-6" color="info" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-6" color="info" aria-label="Enable this feature" v-model="isEnabled">
                     Info
                 </n-switch>
-                <n-switch id="switch-7" color="dark" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-7" color="dark" aria-label="Enable this feature" v-model="isEnabled">
                     Dark
                 </n-switch>
-                <n-switch id="switch-8" color="light" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-switch id="switch-8" color="light" aria-label="Enable this feature" v-model="isEnabled">
                     Light
                 </n-switch>
             </div>
@@ -188,29 +188,29 @@ const inputs = ref({
         <div class="component-section__category">
             <h3>Color</h3>
             <div class="component-section__gallery">
-                <n-checkbox name="hello" id="switch-1" color="primary" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-1" color="primary" aria-label="Enable this feature" v-model="isEnabled">
                     Primary
                 </n-checkbox>
-                <n-checkbox name="hello" id="switch-2" color="secondary" ariaLabel="Enable this feature"
+                <n-checkbox name="hello" id="switch-2" color="secondary" aria-label="Enable this feature"
                     v-model="isEnabled">
                     Secondary
                 </n-checkbox>
-                <n-checkbox name="hello" id="switch-3" color="success" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-3" color="success" aria-label="Enable this feature" v-model="isEnabled">
                     Success
                 </n-checkbox>
-                <n-checkbox name="hello" id="switch-4" color="warning" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-4" color="warning" aria-label="Enable this feature" v-model="isEnabled">
                     Warning
                 </n-checkbox>
-                <n-checkbox name="hello" id="switch-5" color="danger" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-5" color="danger" aria-label="Enable this feature" v-model="isEnabled">
                     Danger
                 </n-checkbox>
-                <n-checkbox name="hello" id="switch-6" color="info" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-6" color="info" aria-label="Enable this feature" v-model="isEnabled">
                     Info
                 </n-checkbox>
-                <n-checkbox name="hello" id="switch-7" color="dark" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-7" color="dark" aria-label="Enable this feature" v-model="isEnabled">
                     Dark
                 </n-checkbox>
-                <n-checkbox name="hello" id="switch-8" color="light" ariaLabel="Enable this feature" v-model="isEnabled">
+                <n-checkbox name="hello" id="switch-8" color="light" aria-label="Enable this feature" v-model="isEnabled">
                     Light
                 </n-checkbox>
             </div>

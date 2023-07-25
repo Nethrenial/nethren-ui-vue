@@ -3,18 +3,19 @@ import { ref, toRefs } from "vue";
 import type { NComponentProps } from "../../utils"
 import AnimatedCheckmark from "../builin-icons/AnimatedCheckmark.vue"
 
+defineOptions({
+    inheritAttrs: false
+})
+
 interface NCheckboxProps extends NComponentProps {
     modelValue: boolean,
-    id: string,
-    name: string,
-    ariaLabel: string,
 }
 
 
 const props = withDefaults(defineProps<NCheckboxProps>(), { color: 'primary' })
 
 
-const { modelValue, id, name } = toRefs(props)
+const { modelValue } = toRefs(props)
 
 const emit = defineEmits<{
     'update:modelValue': [value: boolean]
@@ -44,12 +45,12 @@ function endHold() {
 <template>
     <label class="n-checkbox"
         :class="[`n--${color}`, `n-checkbox--${color}`, modelValue ? `n-checkbox--checked` : ``, isCheckboxHolding ? `n-checkbox--hold` : ``]"
-        tabindex="0" role="switch" :aria-label="ariaLabel" :aria-checked="modelValue" @keydown.enter="toggleCheckbox"
-        @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleCheckbox" @click="toggleCheckbox"
-        @mousedown="startHold" @mouseup="endHold">
+        tabindex="0" role="checkbox" :aria-label="($attrs['aria-label'] as string)" :aria-checked="modelValue"
+        @keydown.enter="toggleCheckbox" @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleCheckbox"
+        @click="toggleCheckbox" @mousedown="startHold" @mouseup="endHold" :for="($attrs['id'] as string)">
         <AnimatedCheckmark class="n-checkbox__check" v-if="modelValue"
             stroke-color="var(--n-component-normal-text-color)" />
-        <input type="checkbox" class="n-checkbox__input" :id="id" :name="name" aria-invalid="false" aria-disabled="false"
+        <input type="checkbox" class="n-checkbox__input" v-bind="$attrs" aria-invalid="false" aria-disabled="false"
             disabled :value="modelValue">
     </label>
 </template>
