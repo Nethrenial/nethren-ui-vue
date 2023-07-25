@@ -23,6 +23,10 @@
         "email": "nethsarasandeepaelvitigala@gmail.com",
         "url": "https://github.com/Nethrenial"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Nethrenial/nethren-ui-vue.git"
+    },
     "license": "MIT",
     "private": false,
     "type": "module",
