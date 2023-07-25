@@ -14,6 +14,10 @@ This project was inspired from several component librarie, mainly Chakra UI and 
 
 Currently vue 3 version is in development and you can install the alpha version from here.
 
+## Getting started
+
+For the full documentation, please visit [@nethren-ui/vue documentation website](https://nethren-ui-vue-docs.pages.dev/) !
+
 ```bash
 npm install @nethren-ui/vue
 # or
