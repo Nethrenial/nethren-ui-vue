@@ -51,7 +51,7 @@ function endHold() {
         <AnimatedCheckmark class="n-checkbox__check" v-if="modelValue"
             stroke-color="var(--n-component-normal-text-color)" />
         <input type="checkbox" class="n-checkbox__input" v-bind="$attrs" aria-invalid="false" aria-disabled="false"
-            disabled :value="modelValue">
+            disabled :value="modelValue" aria-label="">
     </label>
 </template>
 

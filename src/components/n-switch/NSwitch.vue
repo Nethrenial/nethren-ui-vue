@@ -64,7 +64,7 @@ const switchHoldModifier = computed(() => {
         @keydown.enter="toggleSwitch" @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleSwitch"
         @click="toggleSwitch" @mousedown="startHold" @mouseup="endHold" :for="($attrs['id'] as string)">
         <input type="checkbox" class="n-switch__input" aria-invalid="false" aria-disabled="false" disabled
-            :value="modelValue" v-bind="$attrs">
+            :value="modelValue" v-bind="$attrs" aria-label="">
         <span class="n-switch__thumb"></span>
     </label>
 </template>
