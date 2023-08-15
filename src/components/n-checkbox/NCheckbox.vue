@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, toRefs } from "vue";
 import type { NComponentProps } from "../../utils"
-import AnimatedCheckmark from "../builin-icons/AnimatedCheckmark.vue"
+import AnimatedCheckmark from "../builtin-icons/AnimatedCheckmark.vue"
 
 defineOptions({
     inheritAttrs: false

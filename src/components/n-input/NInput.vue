@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { toRefs, ref } from "vue";
 import type { NComponentProps } from "../../utils"
-import OpenEye from "../builin-icons/OpenEye.vue";
-import ClosedEye from "../builin-icons/ClosedEye.vue"
+import OpenEye from "../builtin-icons/OpenEye.vue";
+import ClosedEye from "../builtin-icons/ClosedEye.vue"
 
 defineOptions({
     inheritAttrs: false,

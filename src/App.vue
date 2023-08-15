@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { NButton, NSwitch, NCheckbox, NInput } from "./components"
+import { NButton, NSwitch, NCheckbox, NInput, NModal } from "./components"
 
 const isLoading = ref(false)
 const colorMode = ref<'light' | 'dark'>('light')
@@ -39,6 +39,8 @@ const inputs = ref({
     input1: '',
 })
 
+const modal = ref<InstanceType<typeof NModal>>()
+const modal2 = ref<InstanceType<typeof NModal>>()
 </script>
 
 
@@ -49,6 +51,40 @@ const inputs = ref({
         }} mode
     </n-button>
     <h1>Components Showcase</h1>
+    <section class="component-section">
+        <h2>Modals</h2>
+        <div class="component-section__category">
+            <div class="component-section__gallery">
+                <n-button @click="modal?.openModal">
+                    Open Modal </n-button>
+                <NModal ref="modal" :close-on-outside-click="false">
+                    <template #modal-header>
+                        Modal Header
+                    </template>
+                    <template #modal-body>
+                        <p>Let's try opening another modal !</p>
+                        <n-button @click="modal2?.openModal">
+                            Open Modal 2
+                        </n-button>
+                        <NModal ref="modal2">
+                            <template #modal-header>
+                                Modal Header
+                            </template>
+                            <template #modal-body>
+                                <h1>Modal Body</h1>
+                            </template>
+                            <template #modal-footer>
+                                <h1>Modal Footer</h1>
+                            </template>
+                        </NModal>
+                    </template>
+                    <template #modal-footer>
+                        <h1>Modal Footer</h1>
+                    </template>
+                </NModal>
+            </div>
+        </div>
+    </section>
     <section class="component-section">
         <h2>Inputs</h2>
         <div class="component-section__category">
@@ -61,7 +97,8 @@ const inputs = ref({
                 <n-input v-model="inputs.input1" label="Input 3" id="input-3" name="input-3" />
                 <n-input v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" />
                 <n-input v-model="inputs.input1" label="Input 5" id="input-5" name="input-5" />
-                <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" type="password" :with-visibility-toggle="true" />
+                <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" type="password"
+                    :with-visibility-toggle="true" />
             </div>
         </div>
     </section>

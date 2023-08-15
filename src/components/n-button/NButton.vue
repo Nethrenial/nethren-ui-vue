@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { StyleValue, computed, toRefs } from "vue";
 import { isBuiltinColorName, type NComponentProps } from "../../utils";
-import CircleSpinner from "../builin-icons/spinners/CircleSpinner.vue";
+import CircleSpinner from "../builtin-icons/spinners/CircleSpinner.vue";
 
 
 interface NButtonProps extends NComponentProps {
