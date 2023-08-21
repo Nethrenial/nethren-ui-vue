@@ -1,82 +1,42 @@
 <script setup lang="ts">
-import { StyleValue, computed, toRefs } from "vue";
-import { isBuiltinColorName, type NComponentProps } from "../../utils";
-import CircleSpinner from "../builtin-icons/spinners/CircleSpinner.vue";
+import { toRefs } from 'vue';
+import { NColorPaletteKeyRaw, type NComponentProps } from '../../utils';
+import CircleSpinner from '../builtin-icons/spinners/CircleSpinner.vue';
 
-
-interface NButtonProps extends NComponentProps {
-    label?: string,
-    mode?: "solid" | "outline" | "text",
-    isLoading?: boolean,
-    loadingText?: string,
+interface NButtonProps extends /* @vue-ignore */ NComponentProps {
+    mode?: 'solid' | 'outline' | 'text';
+    color?: NColorPaletteKeyRaw;
+    isLoading?: boolean;
+    loadingText?: string;
+    size?: 'sm' | 'md' | 'normal' | 'lg' | 'xl';
     // TODO: add different sizes
 }
 
 const props = withDefaults(defineProps<NButtonProps>(), {
-    label: undefined,
-    color: "primary",
-    mode: "solid",
+    color: 'primary',
+    mode: 'solid',
     isLoading: false,
-    loadingText: undefined
+    loadingText: undefined,
+    size: 'normal'
 });
 
-const { label, color, mode, isLoading } = toRefs(props);
-
-
-const computedStyle = computed<StyleValue>(() => {
-    return !isBuiltinColorName(color.value) ? {
-        // set colors for solid buttons
-        "--n-button-solid-bg": "var(--n-color-primary-400)",
-        "--n-button-solid-bg-hover": "var(--n-color-primary-500)",
-        "--n-button-solid-bg-active": "var(--n-color-primary-600)",
-        "--n-button-solid-bg-disabled": "var(--n-color-primary-200)",
-        "--n-button-solid-text": "var(--n-color-primary-50)",
-
-        // set colors for outline buttons
-        "--n-button-outline-bg": "transparent",
-        "--n-button-outline-bg-hover": "var(--n-color-primary-50)",
-        "--n-button-outline-bg-active": "var(--n-color-primary-100)",
-        "--n-button-outline-bg-disabled": "transparent",
-        "--n-button-outline-text": "var(--n-color-primary-400)",
-        "--n-button-outline-outline": "var(--n-color-primary-400)",
-
-        // set colors for text buttons
-        "--n-button-text-bg": "transparent",
-        "--n-button-text-bg-hover": "var(--n-color-primary-50)",
-        "--n-button-text-bg-active": "var(--n-color-primary-100)",
-        "--n-button-text-bg-disabled": "transparent",
-        "--n-button-text-text": "var(--n-color-primary-400)"
-    } : {};
-});
-
+const { color, mode, isLoading, loadingText, size } = toRefs(props);
 </script>
 
-
 <template>
-    <button class="n-button"
-            :class="[`n--${color}`, `n-button--${color}`, `n-button--${mode}`, isLoading ? 'n-button--loading' : '']"
-            :style="computedStyle">
+    <button class="n-button" :class="[`n--${color}`, `n-button--${color}`, `n-button--${size}`, `n-button--${mode}`, isLoading ? 'n-button--loading' : '']">
         <circle-spinner v-if="isLoading" class="n-button__spinner" />
         <slot name="leftIcon" v-if="!isLoading" />
-        <slot v-if="!isLoading || (isLoading && !loadingText)">
-
-            {{
-                label ? label : "Please add inner content or a label prop"
-            }}
-        </slot>
-        {{
-            isLoading && loadingText ? loadingText : ""
-        }}
+        <slot v-if="!isLoading || (isLoading && !loadingText)"> </slot>
+        {{ isLoading && loadingText ? loadingText : '' }}
         <slot name="rightIcon" v-if="!isLoading" class="n-button__icon" />
     </button>
 </template>
 
-
 <style lang="scss">
-@import "./button-styles.scss";
+@import './button-styles.scss';
 
 .n-button {
-
     // resetting unneeded browser styles
     font-family: inherit;
     font-size: 100%;
@@ -96,15 +56,37 @@ const computedStyle = computed<StyleValue>(() => {
         cursor: not-allowed;
     }
 
-
     // border styling
     border-radius: 0.375rem;
 
-    // padding
-    padding: 0 1rem;
+    &--sm {
+        padding: 0 0.5rem;
+        height: 1.5rem;
+        font-size: 0.75rem;
+    }
 
-    // size
-    height: 2.5rem;
+    &--md {
+        padding: 0 0.75rem;
+        height: 2rem;
+        font-size: 0.875rem;
+    }
+
+    &--normal {
+        padding: 0 1rem;
+        height: 2.5rem;
+    }
+
+    &--lg {
+        padding: 0 1.25rem;
+        height: 3rem;
+        font-size: 1.125rem;
+    }
+
+    &--xl {
+        padding: 0 1.5rem;
+        height: 3.5rem;
+        font-size: 1.25rem;
+    }
 
     // transition
     transition: all 200ms;
@@ -181,7 +163,6 @@ const computedStyle = computed<StyleValue>(() => {
             background-color: var(--n-component-outline-hover-bg-color);
         }
     }
-
 
     &__spinner {
         width: 1.5rem;

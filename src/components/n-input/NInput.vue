@@ -1,62 +1,64 @@
 <script setup lang="ts">
-import { toRefs, ref } from "vue";
-import type { NComponentProps } from "../../utils"
-import OpenEye from "../builtin-icons/OpenEye.vue";
-import ClosedEye from "../builtin-icons/ClosedEye.vue"
+import { toRefs, ref } from 'vue';
+import type { NInputComponentProps, NHtmLabelProps, NHtmlDivProps, NColorPaletteKeyRaw } from '../../utils';
+import OpenEye from '../builtin-icons/OpenEye.vue';
+import ClosedEye from '../builtin-icons/ClosedEye.vue';
 
 defineOptions({
-    inheritAttrs: false,
-})
+    inheritAttrs: false
+});
 
-interface NInputProps extends NComponentProps {
-    modelValue: string | number,
-    type?: 'text' | 'number' | 'password' | 'email' | 'tel' | 'url' | 'search' | 'date' | 'time',
-    withVisibilityToggle?: boolean,
-    errors?: string[],
-    label?: string,
+interface NInputProps extends /* @vue-ignore */ NInputComponentProps {
+    modelValue: string | number;
+    withVisibilityToggle?: boolean;
+    errors?: string[];
+    label?: string;
+    wrapperAttrs?: NHtmlDivProps;
+    labelAttrs?: NHtmLabelProps;
+    color?: NColorPaletteKeyRaw;
 }
 
+const props = withDefaults(defineProps<NInputProps>(), {
+    color: 'primary',
+    label: undefined,
+    placeholder: undefined,
+    disabled: false,
+    type: 'text',
+    required: true,
+    withVisibilityToggle: false,
+    errors: () => [],
+    wrapperAttrs: () => {
+        return {};
+    },
+    labelAttrs: () => {
+        return {};
+    }
+});
 
-const props = withDefaults(defineProps<NInputProps>(),
-    {
-        color: 'primary',
-        label: undefined,
-        placeholder: undefined,
-        disabled: false,
-        type: 'text',
-        required: true,
-        withVisibilityToggle: false,
-    })
-
-
-const { modelValue, label, type, errors, required, withVisibilityToggle } = toRefs(props)
+const { modelValue, label, type, errors, required, withVisibilityToggle, color, wrapperAttrs, labelAttrs } = toRefs(props);
 
 const emit = defineEmits<{
-    'update:modelValue': [value: string | number]
-}>()
-
+    'update:modelValue': [value: string | number];
+}>();
 
 function onChange(event: Event) {
-    emit('update:modelValue', (event.target as HTMLInputElement).value)
+    emit('update:modelValue', (event.target as HTMLInputElement).value);
 }
 
-
-const passwordVisibility = ref(false)
+const passwordVisibility = ref(false);
 
 function togglePasswordVisibility() {
-    passwordVisibility.value = !passwordVisibility.value
+    passwordVisibility.value = !passwordVisibility.value;
 }
-
-
 </script>
 
 <template>
-    <div class="n-input" :class="[`n--${color}`, `n-input--${color}`]">
-        <label :for="($attrs['id'] as string)" class="n-input__label" v-if='label'>{{ label }}
+    <div class="n-input" :class="[`n--${color}`, `n-input--${color}`]" v-bind="wrapperAttrs">
+        <label :for="$attrs['id'] as string" class="n-input__label" v-if="label" v-bind="labelAttrs"
+            >{{ label }}
             <sup v-if="required" class="n-input__required-indicator">*</sup>
         </label>
-        <input :type="passwordVisibility ? 'text' : type" :value="modelValue" class="n-input__input" @change="onChange"
-            @input="onChange" v-bind="$attrs">
+        <input :type="passwordVisibility ? 'text' : type" :value="modelValue" class="n-input__input" @change="onChange" @input="onChange" v-bind="$attrs" />
         <div v-if="errors && errors.length > 0">
             <span class="n-input__error">{{ errors[0] }}</span>
         </div>
@@ -67,12 +69,10 @@ function togglePasswordVisibility() {
     </div>
 </template>
 
-
 <style lang="scss">
-@import "./input-styles.scss";
+@import './input-styles.scss';
 
 .n-input {
-
     display: flex;
     flex-direction: column;
     position: relative;
@@ -97,13 +97,10 @@ function togglePasswordVisibility() {
         transition: all 200ms;
         outline: 2px solid transparent;
 
-
         &:focus {
             outline: 2px solid var(--n-component-normal-bg-color);
             border-color: rgba(0, 0, 0, 0);
         }
-
-
 
         &::placeholder {
             opacity: 1;
@@ -116,7 +113,6 @@ function togglePasswordVisibility() {
         font-weight: 500;
         line-height: 1rem;
     }
-
 
     &__required-indicator {
         color: var(--n-color-danger-400);

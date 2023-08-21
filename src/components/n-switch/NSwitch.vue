@@ -1,77 +1,83 @@
 <script setup lang="ts">
 import { computed, ref, toRefs } from 'vue';
-import { type NComponentProps } from "../../utils"
-
+import { NColorPaletteKeyRaw, type NComponentProps } from '../../utils';
 
 defineOptions({
     inheritAttrs: false
-})
+});
 
-interface NSwitchProps extends NComponentProps {
-    modelValue: boolean,
+interface NSwitchProps extends /* @vue-ignore */ NComponentProps {
+    modelValue: boolean;
+    color?: NColorPaletteKeyRaw;
     // TODO: add different sizes, disabled state, loading state
 }
 
 const props = withDefaults(defineProps<NSwitchProps>(), {
     color: 'primary'
-})
+});
 
-const { modelValue, color } = toRefs(props)
+const { modelValue, color } = toRefs(props);
 
 const emit = defineEmits<{
-    'update:modelValue': [value: boolean]
-}>()
-
+    'update:modelValue': [value: boolean];
+}>();
 
 function toggleSwitch(event: MouseEvent | KeyboardEvent) {
     if (event instanceof KeyboardEvent) {
-        if (event.repeat) return
-        startHold()
+        if (event.repeat) return;
+        startHold();
     }
-    emit('update:modelValue', !modelValue.value)
+    emit('update:modelValue', !modelValue.value);
 }
 
-const isSwitchHolding = ref(false)
-const switchHoldDirection = ref<'left' | 'right'>('right')
+const isSwitchHolding = ref(false);
+const switchHoldDirection = ref<'left' | 'right'>('right');
 
 function startHold() {
-    isSwitchHolding.value = true
+    isSwitchHolding.value = true;
     if (modelValue.value) {
-        switchHoldDirection.value = 'right'
+        switchHoldDirection.value = 'right';
     } else {
-        switchHoldDirection.value = 'left'
+        switchHoldDirection.value = 'left';
     }
 }
 
 function endHold() {
-    isSwitchHolding.value = false
+    isSwitchHolding.value = false;
 }
 
 const switchHoldModifier = computed(() => {
     if (isSwitchHolding.value) {
-        return `n-switch--hold-${switchHoldDirection.value}`
+        return `n-switch--hold-${switchHoldDirection.value}`;
     }
-    return ''
-})
-
+    return '';
+});
 </script>
 
-
 <template>
-    <label class="n-switch"
+    <label
+        class="n-switch"
         :class="[`n--${color}`, `n-switch--${color}`, modelValue ? `n-switch--checked` : ``, isSwitchHolding ? `n-switch--hold` : ``, switchHoldModifier]"
-        tabindex="0" role="switch" :aria-label="($attrs['aria-label'] as string)" :aria-checked="modelValue"
-        @keydown.enter="toggleSwitch" @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleSwitch"
-        @click="toggleSwitch" @mousedown="startHold" @mouseup="endHold" :for="($attrs['id'] as string)">
-        <input type="checkbox" class="n-switch__input" aria-invalid="false" aria-disabled="false" disabled
-            :value="modelValue" v-bind="$attrs" aria-label="">
+        tabindex="0"
+        role="switch"
+        :aria-label="$attrs['aria-label'] as string"
+        :aria-checked="modelValue"
+        @keydown.enter="toggleSwitch"
+        @keyup.enter="endHold"
+        @keyup.space="endHold"
+        @keydown.space="toggleSwitch"
+        @click="toggleSwitch"
+        @mousedown="startHold"
+        @mouseup="endHold"
+        :for="$attrs['id'] as string"
+    >
+        <input type="checkbox" class="n-switch__input" aria-invalid="false" aria-disabled="false" disabled :value="modelValue" v-bind="$attrs" aria-label="" />
         <span class="n-switch__thumb"></span>
     </label>
 </template>
 
-
 <style lang="scss">
-@import "./switch-styles.scss";
+@import './switch-styles.scss';
 
 .n-switch {
     position: relative;
@@ -86,7 +92,7 @@ const switchHoldModifier = computed(() => {
     transition: 200ms all;
 
     &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -100,7 +106,6 @@ const switchHoldModifier = computed(() => {
     }
 
     &--checked {
-
         &::after {
             transform: translateX(0%);
         }
@@ -108,7 +113,6 @@ const switchHoldModifier = computed(() => {
         & .n-switch__thumb {
             left: calc(100% - 1.55rem);
         }
-
     }
 
     &--hold {
@@ -126,9 +130,7 @@ const switchHoldModifier = computed(() => {
                 width: 1.65rem;
             }
         }
-
     }
-
 
     &__thumb {
         height: 1.3rem;
@@ -145,7 +147,6 @@ const switchHoldModifier = computed(() => {
         transition: all 200ms;
     }
 
-
     &__input {
         border: none;
         outline: none;
@@ -160,7 +161,5 @@ const switchHoldModifier = computed(() => {
         top: 0;
         left: 0;
     }
-
-
 }
 </style>

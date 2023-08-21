@@ -1,63 +1,68 @@
 <script setup lang="ts">
-import { ref, toRefs } from "vue";
-import type { NComponentProps } from "../../utils"
-import AnimatedCheckmark from "../builtin-icons/AnimatedCheckmark.vue"
+import { ref, toRefs } from 'vue';
+import type { NColorPaletteKeyRaw, NComponentProps } from '../../utils';
+import AnimatedCheckmark from '../builtin-icons/AnimatedCheckmark.vue';
 
 defineOptions({
     inheritAttrs: false
-})
+});
 
-interface NCheckboxProps extends NComponentProps {
-    modelValue: boolean,
+interface NCheckboxProps extends /* @vue-ignore */ NComponentProps {
+    modelValue: boolean;
+    color?: NColorPaletteKeyRaw;
 }
 
+const props = withDefaults(defineProps<NCheckboxProps>(), { color: 'primary' });
 
-const props = withDefaults(defineProps<NCheckboxProps>(), { color: 'primary' })
-
-
-const { modelValue } = toRefs(props)
+const { modelValue } = toRefs(props);
 
 const emit = defineEmits<{
-    'update:modelValue': [value: boolean]
-}>()
-
+    'update:modelValue': [value: boolean];
+}>();
 
 function toggleCheckbox(event: MouseEvent | KeyboardEvent) {
     if (event instanceof KeyboardEvent) {
-        if (event.repeat) return
-        startHold()
+        if (event.repeat) return;
+        startHold();
     }
-    emit('update:modelValue', !modelValue.value)
+    emit('update:modelValue', !modelValue.value);
 }
 
-const isCheckboxHolding = ref(false)
+const isCheckboxHolding = ref(false);
 
 function startHold() {
-    isCheckboxHolding.value = true
+    isCheckboxHolding.value = true;
 }
 
 function endHold() {
-    isCheckboxHolding.value = false
+    isCheckboxHolding.value = false;
 }
-
 </script>
 
 <template>
-    <label class="n-checkbox"
+    <label
+        class="n-checkbox"
         :class="[`n--${color}`, `n-checkbox--${color}`, modelValue ? `n-checkbox--checked` : ``, isCheckboxHolding ? `n-checkbox--hold` : ``]"
-        tabindex="0" role="checkbox" :aria-label="($attrs['aria-label'] as string)" :aria-checked="modelValue"
-        @keydown.enter="toggleCheckbox" @keyup.enter="endHold" @keyup.space="endHold" @keydown.space="toggleCheckbox"
-        @click="toggleCheckbox" @mousedown="startHold" @mouseup="endHold" :for="($attrs['id'] as string)">
-        <AnimatedCheckmark class="n-checkbox__check" v-if="modelValue"
-            stroke-color="var(--n-component-normal-text-color)" />
-        <input type="checkbox" class="n-checkbox__input" v-bind="$attrs" aria-invalid="false" aria-disabled="false"
-            disabled :value="modelValue" aria-label="">
+        tabindex="0"
+        role="checkbox"
+        :aria-label="$attrs['aria-label'] as string"
+        :aria-checked="modelValue"
+        @keydown.enter="toggleCheckbox"
+        @keyup.enter="endHold"
+        @keyup.space="endHold"
+        @keydown.space="toggleCheckbox"
+        @click="toggleCheckbox"
+        @mousedown="startHold"
+        @mouseup="endHold"
+        :for="$attrs['id'] as string"
+    >
+        <AnimatedCheckmark class="n-checkbox__check" v-if="modelValue" stroke-color="var(--n-component-normal-text-color)" />
+        <input type="checkbox" class="n-checkbox__input" v-bind="$attrs" aria-invalid="false" aria-disabled="false" disabled :value="modelValue" aria-label="" />
     </label>
 </template>
 
-
 <style lang="scss">
-@import "./checkbox-styles.scss";
+@import './checkbox-styles.scss';
 
 .n-checkbox {
     width: 1.5rem;
@@ -68,7 +73,6 @@ function endHold() {
     transition: all 200ms;
     cursor: pointer;
     z-index: 0;
-
 
     &::after {
         content: '';
@@ -114,6 +118,5 @@ function endHold() {
         top: 0;
         left: 0;
     }
-
 }
 </style>
