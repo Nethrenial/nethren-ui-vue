@@ -76,8 +76,6 @@ const modal2 = ref<InstanceType<typeof NModal>>();
         <div class="component-section__category">
             <h3>{{ inputs.input1 }}</h3>
             <div class="component-section__gallery">
-                <n-input v-model="inputs.input1" label="Input 1" id="input-1" name="input-1" type="color" :errors="['Username must be available']" />
-                <n-input v-model="inputs.input1" label="Input 2" id="input-2" name="input-2" type="number" color="secondary" />
                 <n-input
                     v-model="inputs.input1"
                     label="Input 3"
