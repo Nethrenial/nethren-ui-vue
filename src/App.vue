@@ -88,7 +88,7 @@ const modal2 = ref<InstanceType<typeof NModal>>();
                         onClick: () => console.log('wrapper clicked')
                     }"
                 />
-                <n-input v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" />
+                <n-input v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" :errors="['Name is invalid']" />
                 <n-input v-model="inputs.input1" label="Input 5" id="input-5" name="input-5" />
                 <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" type="password" :with-visibility-toggle="true" />
             </div>

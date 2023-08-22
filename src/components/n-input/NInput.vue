@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { toRefs, ref } from 'vue';
+import { toRefs, ref, watch } from 'vue';
 import type { NInputComponentProps, NHtmLabelProps, NHtmlDivProps, NColorPaletteKeyRaw } from '../../utils';
 import OpenEye from '../builtin-icons/OpenEye.vue';
 import ClosedEye from '../builtin-icons/ClosedEye.vue';
+import { useElementBounding } from '../../composables/useElementBounding';
 
 defineOptions({
     inheritAttrs: false
@@ -51,30 +52,45 @@ const passwordVisibility = ref(false);
 function togglePasswordVisibility() {
     passwordVisibility.value = !passwordVisibility.value;
 }
+
+const inputElement = ref<HTMLInputElement>();
+
+const { elementBounding } = useElementBounding(inputElement);
+
+watch(
+    elementBounding,
+    (newVal) => {
+        console.log(newVal);
+    },
+    { immediate: true }
+);
 </script>
 
 <template>
-    <div class="n-input" :class="[`n--${color}`, `n-input--${color}`]" v-bind="wrapperAttrs">
-        <label :for="$attrs['id'] as string" class="n-input__label" v-if="label" v-bind="labelAttrs"
-            >{{ label }}
-            <sup v-if="required" class="n-input__required-indicator">*</sup>
-        </label>
-        <input
-            :type="passwordVisibility ? 'text' : type"
-            :value="modelValue"
-            class="n-input__input"
-            :class="[withVisibilityToggle ? 'n-input__input--visibility' : '']"
-            @change="onChange"
-            @input="onChange"
-            v-bind="$attrs"
-        />
+    <div style="position: relative; background-color: teal">
+        <div class="n-input" :class="[`n--${color}`, `n-input--${color}`]" v-bind="wrapperAttrs">
+            <label :for="$attrs['id'] as string" class="n-input__label" v-if="label" v-bind="labelAttrs"
+                >{{ label }}
+                <sup v-if="required" class="n-input__required-indicator">*</sup>
+            </label>
+            <input
+                :type="passwordVisibility ? 'text' : type"
+                :value="modelValue"
+                class="n-input__input"
+                :class="[withVisibilityToggle ? 'n-input__input--visibility' : '']"
+                @change="onChange"
+                @input="onChange"
+                v-bind="$attrs"
+                ref="inputElement"
+            />
+            <button type="button" class="n-input__visibility" v-if="withVisibilityToggle" @click="togglePasswordVisibility">
+                <open-eye v-if="passwordVisibility" />
+                <closed-eye v-else />
+            </button>
+        </div>
         <div v-if="errors && errors.length > 0">
             <span class="n-input__error">{{ errors[0] }}</span>
         </div>
-        <button type="button" class="n-input__visibility" v-if="withVisibilityToggle" @click="togglePasswordVisibility">
-            <open-eye v-if="passwordVisibility" />
-            <closed-eye v-else />
-        </button>
     </div>
 </template>
 
@@ -85,6 +101,11 @@ function togglePasswordVisibility() {
     display: flex;
     flex-direction: column;
     position: relative;
+    box-sizing: border-box;
+
+    & > * {
+        box-sizing: border-box;
+    }
 
     &__input {
         font-family: inherit;
@@ -149,7 +170,7 @@ function togglePasswordVisibility() {
         border-left: 1px solid var(--n-component-inactive-bg-color);
         cursor: pointer;
         outline: none;
-        height: 40px;
+        height: 38px;
         border-radius: 0 0.375rem 0.375rem 0;
         font-size: 1.25rem;
         display: grid;
