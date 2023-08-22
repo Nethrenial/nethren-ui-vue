@@ -98,14 +98,30 @@ watch(
 @import './input-styles.scss';
 
 .n-input {
+    // reset
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+
+    & > * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+    // reset finish
+
     display: flex;
     flex-direction: column;
     position: relative;
     box-sizing: border-box;
-
-    & > * {
-        box-sizing: border-box;
-    }
 
     &__input {
         font-family: inherit;
@@ -162,7 +178,7 @@ watch(
     &__visibility {
         position: absolute;
         right: 1px;
-        top: 1.7rem;
+        top: 1.6725rem;
         width: 40px;
         border: none;
         color: var(--n-component-normal-bg-color);
@@ -170,7 +186,7 @@ watch(
         border-left: 1px solid var(--n-component-inactive-bg-color);
         cursor: pointer;
         outline: none;
-        height: 38px;
+        height: 40px;
         border-radius: 0 0.375rem 0.375rem 0;
         font-size: 1.25rem;
         display: grid;
