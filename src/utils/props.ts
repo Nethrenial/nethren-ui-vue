@@ -8,7 +8,7 @@ interface ComponentProps {
 }
 
 interface InputComponentProps extends ComponentProps {
-    type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'range' | 'color' | 'date' | 'time' | 'datetime-local' | 'month' | 'week' | 'file';
+    // type?: 'text' | 'password' | 'email' | 'tel' | 'url' | 'search';
 }
 
 // Define Props

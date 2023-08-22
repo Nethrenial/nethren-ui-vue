@@ -16,6 +16,7 @@ interface NInputProps extends /* @vue-ignore */ NInputComponentProps {
     wrapperAttrs?: NHtmlDivProps;
     labelAttrs?: NHtmLabelProps;
     color?: NColorPaletteKeyRaw;
+    type?: 'text' | 'password' | 'email' | 'tel' | 'url' | 'search';
 }
 
 const props = withDefaults(defineProps<NInputProps>(), {
@@ -58,7 +59,15 @@ function togglePasswordVisibility() {
             >{{ label }}
             <sup v-if="required" class="n-input__required-indicator">*</sup>
         </label>
-        <input :type="passwordVisibility ? 'text' : type" :value="modelValue" class="n-input__input" @change="onChange" @input="onChange" v-bind="$attrs" />
+        <input
+            :type="passwordVisibility ? 'text' : type"
+            :value="modelValue"
+            class="n-input__input"
+            :class="[withVisibilityToggle ? 'n-input__input--visibility' : '']"
+            @change="onChange"
+            @input="onChange"
+            v-bind="$attrs"
+        />
         <div v-if="errors && errors.length > 0">
             <span class="n-input__error">{{ errors[0] }}</span>
         </div>
@@ -97,6 +106,10 @@ function togglePasswordVisibility() {
         transition: all 200ms;
         outline: 2px solid transparent;
 
+        &--visibility {
+            padding-right: 3.5rem;
+        }
+
         &:focus {
             outline: 2px solid var(--n-component-normal-bg-color);
             border-color: rgba(0, 0, 0, 0);
@@ -121,18 +134,26 @@ function togglePasswordVisibility() {
         line-height: 1rem;
     }
 
+    &__label {
+        width: max-content;
+    }
+
     &__visibility {
         position: absolute;
         right: 1px;
-        top: calc(50% - 0.35rem);
+        top: 1.7rem;
         width: 40px;
         border: none;
-        background-color: var(--n-component-inactive-bg-color);
+        color: var(--n-component-normal-bg-color);
+        background-color: transparent;
+        border-left: 1px solid var(--n-component-inactive-bg-color);
         cursor: pointer;
         outline: none;
         height: 40px;
         border-radius: 0 0.375rem 0.375rem 0;
         font-size: 1.25rem;
+        display: grid;
+        place-items: center;
     }
 }
 </style>
