@@ -85,9 +85,6 @@ const modal2 = ref<InstanceType<typeof NModal>>();
                     :label-attrs="{
                         style: { backgroundColor: 'red' }
                     }"
-                    :wrapper-attrs="{
-                        onClick: () => console.log('wrapper clicked')
-                    }"
                 >
                     <template #leftIcon>
                         <ClosedEye />

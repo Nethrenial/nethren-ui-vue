@@ -128,6 +128,7 @@ if (withVisibilityToggle.value && hasRightIcon.value) {
         color: inherit;
         margin: 0;
         padding: 0 1rem;
+        width: 100%;
 
         // custom styling
 
