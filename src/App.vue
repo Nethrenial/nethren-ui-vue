@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { NButton, NSwitch, NCheckbox, NInput, NModal } from './components';
+import ClosedEye from './components/builtin-icons/ClosedEye.vue';
 
 const isLoading = ref(false);
 const colorMode = ref<'light' | 'dark'>('light');
@@ -87,8 +88,14 @@ const modal2 = ref<InstanceType<typeof NModal>>();
                     :wrapper-attrs="{
                         onClick: () => console.log('wrapper clicked')
                     }"
-                />
-                <n-input v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" :errors="['Name is invalid']" />
+                >
+                    <template #leftIcon>
+                        <ClosedEye />
+                    </template>
+                </n-input>
+                <n-input type="password" v-model="inputs.input1" label="Input 4" id="input-4" name="input-4" :errors="['Password must have 3 letters', 'Password mut have 4 digits']">
+                    <template #rightIcon> <ClosedEye /> </template
+                ></n-input>
                 <n-input v-model="inputs.input1" label="Input 5" id="input-5" name="input-5" />
                 <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" type="password" :with-visibility-toggle="true" />
             </div>

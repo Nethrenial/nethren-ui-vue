@@ -44,7 +44,7 @@ function closeModal() {
         setTimeout(() => {
             document.body.style.overflow = 'auto';
             document.body.style.paddingRight = '0px';
-        }, 300);
+        }, 200);
     }
 }
 
@@ -121,21 +121,33 @@ function onOutSideClick() {
         0% {
             transform: translate(-50%, -50%) scale(1);
         }
+
         25% {
             transform: translate(-50%, -50%) scale(1.02);
         }
+
         50% {
             transform: translate(-50%, -50%) scale(1);
         }
+
         75% {
             transform: translate(-50%, -50%) scale(1.02);
         }
+
         100% {
             transform: translate(-50%, -50%) scale(1);
         }
     }
 
     &__close-btn {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        vertical-align: baseline;
+        background: transparent;
+        box-sizing: border-box;
+
         outline: none;
         border: none;
         font-size: 2rem;
@@ -158,7 +170,7 @@ function onOutSideClick() {
 
 .n-modal-enter-active,
 .n-modal-leave-active {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .n-modal-enter-from,
@@ -174,6 +186,13 @@ function onOutSideClick() {
 }
 
 .n-modal-overlay {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
@@ -185,7 +204,7 @@ function onOutSideClick() {
 
 .n-modal-overlay-enter-active,
 .n-modal-overlay-leave-active {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .n-modal-overlay-enter-from,
@@ -199,6 +218,14 @@ function onOutSideClick() {
 }
 
 .n-modal-header {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    box-sizing: border-box;
+
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { toRefs } from 'vue';
 
-const props = withDefaults(defineProps<{
-    strokeColor?: string
-}>(), { strokeColor: 'white' })
+const props = withDefaults(
+    defineProps<{
+        strokeColor?: string;
+    }>(),
+    { strokeColor: 'white' }
+);
 
-const { strokeColor } = toRefs(props)
-
+const { strokeColor } = toRefs(props);
 </script>
 
 <template>
@@ -14,7 +16,6 @@ const { strokeColor } = toRefs(props)
         <path d="M20 50 L45 75 L80 30" stroke="black" fill="transparent"></path>
     </svg>
 </template>
-
 
 <style scoped lang="scss">
 svg {
@@ -33,7 +34,6 @@ svg {
         stroke: v-bind(strokeColor);
     }
 }
-
 
 @keyframes checkmark {
     to {

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { toRefs, ref, watch } from 'vue';
+import { toRefs, ref, useSlots, computed } from 'vue';
 import type { NInputComponentProps, NHtmLabelProps, NHtmlDivProps, NColorPaletteKeyRaw } from '../../utils';
 import OpenEye from '../builtin-icons/OpenEye.vue';
 import ClosedEye from '../builtin-icons/ClosedEye.vue';
-import { useElementBounding } from '../../composables/useElementBounding';
 
 defineOptions({
     inheritAttrs: false
@@ -53,40 +52,51 @@ function togglePasswordVisibility() {
     passwordVisibility.value = !passwordVisibility.value;
 }
 
-const inputElement = ref<HTMLInputElement>();
+const slots = useSlots();
 
-const { elementBounding } = useElementBounding(inputElement);
+const hasRightIcon = computed(() => {
+    return slots.rightIcon !== undefined;
+});
 
-watch(
-    elementBounding,
-    (newVal) => {
-        console.log(newVal);
-    },
-    { immediate: true }
-);
+const hasLeftIcon = computed(() => {
+    return slots.leftIcon !== undefined;
+});
+
+if (withVisibilityToggle.value && hasRightIcon.value) {
+    throw new Error("You shouldn't use both `with-visibility-toggle` and `rightIcon` slot at the same time, it will mess up with styling and honestly, would look hideous anyways!");
+}
 </script>
 
 <template>
-    <div style="position: relative; background-color: teal">
-        <div class="n-input" :class="[`n--${color}`, `n-input--${color}`]" v-bind="wrapperAttrs">
-            <label :for="$attrs['id'] as string" class="n-input__label" v-if="label" v-bind="labelAttrs"
-                >{{ label }}
-                <sup v-if="required" class="n-input__required-indicator">*</sup>
-            </label>
+    <div class="n-input" :class="[`n--${color}`, `n-input--${color}`]" v-bind="wrapperAttrs">
+        <label :for="$attrs['id'] as string" class="n-input__label" v-if="label" v-bind="labelAttrs"
+            >{{ label }}
+            <sup v-if="required" class="n-input__required-indicator">*</sup>
+        </label>
+        <div class="n-input__icon-wrap">
+            <span class="n-input__left-icon" v-if="$slots['leftIcon']">
+                <slot name="leftIcon"></slot>
+            </span>
             <input
                 :type="passwordVisibility ? 'text' : type"
                 :value="modelValue"
                 class="n-input__input"
-                :class="[withVisibilityToggle ? 'n-input__input--visibility' : '']"
+                :class="[
+                    withVisibilityToggle ? 'n-input__input--with-visibility-toggle' : '',
+                    hasRightIcon ? 'n-input__input--with-right-icon' : '',
+                    hasLeftIcon ? 'n-input__input--with-left-icon' : ''
+                ]"
                 @change="onChange"
                 @input="onChange"
                 v-bind="$attrs"
-                ref="inputElement"
             />
             <button type="button" class="n-input__visibility" v-if="withVisibilityToggle" @click="togglePasswordVisibility">
                 <open-eye v-if="passwordVisibility" />
                 <closed-eye v-else />
             </button>
+            <span class="n-input__right-icon" v-if="$slots['rightIcon']">
+                <slot name="rightIcon"></slot>
+            </span>
         </div>
         <div v-if="errors && errors.length > 0">
             <span class="n-input__error">{{ errors[0] }}</span>
@@ -98,30 +108,17 @@ watch(
 @import './input-styles.scss';
 
 .n-input {
-    // reset
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-
-    & > * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        outline: 0;
-        font-size: 100%;
-        vertical-align: baseline;
-        background: transparent;
-    }
-    // reset finish
-
     display: flex;
     flex-direction: column;
     position: relative;
     box-sizing: border-box;
+
+    &__icon-wrap {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+        position: relative;
+    }
 
     &__input {
         font-family: inherit;
@@ -131,7 +128,6 @@ watch(
         color: inherit;
         margin: 0;
         padding: 0 1rem;
-        margin-top: 0.5rem;
 
         // custom styling
 
@@ -143,8 +139,17 @@ watch(
         transition: all 200ms;
         outline: 2px solid transparent;
 
-        &--visibility {
-            padding-right: 3.5rem;
+        &--with-right-icon {
+            padding-right: 40px;
+        }
+
+        &--with-visibility-toggle {
+            border-radius: 0.375rem 0 0 0.375rem;
+            border-right: none;
+        }
+
+        &--with-left-icon {
+            padding-left: 40px;
         }
 
         &:focus {
@@ -175,18 +180,48 @@ watch(
         width: max-content;
     }
 
-    &__visibility {
+    &__right-icon {
         position: absolute;
-        right: 1px;
-        top: 1.6725rem;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
         width: 40px;
-        border: none;
-        color: var(--n-component-normal-bg-color);
+        height: 40px;
         background-color: transparent;
-        border-left: 1px solid var(--n-component-inactive-bg-color);
+        border-right: none;
         cursor: pointer;
         outline: none;
+        border-radius: 0 0.375rem 0.375rem 0;
+        font-size: 1.25rem;
+        display: grid;
+        place-items: center;
+    }
+
+    &__left-icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 40px;
         height: 40px;
+        background-color: transparent;
+        border-right: none;
+        cursor: pointer;
+        outline: none;
+        border-radius: 0.375rem 0 0 0.375rem;
+        font-size: 1.25rem;
+        display: grid;
+        place-items: center;
+    }
+
+    &__visibility {
+        outline: 2px solid transparent;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: 1px solid var(--n-component-border-color);
+        cursor: pointer;
+        outline: none;
         border-radius: 0 0.375rem 0.375rem 0;
         font-size: 1.25rem;
         display: grid;
