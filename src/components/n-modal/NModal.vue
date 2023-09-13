@@ -15,7 +15,7 @@ interface NModalProps extends /* @vue-ignore */ NComponentProps {
 const props = withDefaults(defineProps<NModalProps>(), {
     color: 'primary',
     closeOnOutsideClick: true,
-    lockScroll: true,
+    lockScroll: false,
     withCloseButton: true,
     modelAttrs: () => ({}),
     modelOverlayAttrs: () => ({})
@@ -75,9 +75,7 @@ function onOutSideClick() {
         <Transition name="n-modal">
             <div class="n-modal" v-if="isOpen" :class="shaking ? 'n-modal--shaking' : ''" v-bind="modelAttrs">
                 <header class="n-modal-header">
-                    <h3>
-                        <slot name="modal-header"></slot>
-                    </h3>
+                    <slot name="modal-header"></slot>
                     <button class="n-modal__close-btn" @click="closeModal">
                         <XMark />
                     </button>
@@ -231,11 +229,7 @@ function onOutSideClick() {
     justify-content: space-between;
     margin-top: -0.5rem;
     margin-bottom: 1rem;
-}
-
-.n-modal-header h3 {
-    font-size: 1.2rem;
-    font-weight: bold;
+    background-color: red;
 }
 
 .n-modal-header .n-modal__close-btn svg {
@@ -245,5 +239,13 @@ function onOutSideClick() {
 
 .n-modal-header .n-modal__close-btn svg:hover {
     transform: rotate(180deg);
+}
+
+.n-modal-body {
+    background-color: yellow;
+}
+
+.n-modal-footer {
+    background-color: green;
 }
 </style>

@@ -1,12 +1,10 @@
-import {App} from 'vue'
-import NButton from "./NButton.vue"
-
+import { App } from 'vue';
+import NButton from './NButton.vue';
 
 const NButtonPlugin = {
     install(app: App) {
-        app.component('n-button', NButton)
+        app.component('NButton', NButton);
     }
-}
+};
 
-
-export { NButton, NButtonPlugin }
+export { NButton, NButtonPlugin };

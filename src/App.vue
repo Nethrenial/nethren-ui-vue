@@ -43,6 +43,8 @@ const modal2 = ref<InstanceType<typeof NModal>>();
 </script>
 
 <template>
+    <h1>Components Showcase</h1>
+
     <n-button @click="toggleColorMode"> Switch to {{ colorMode === 'light' ? 'dark' : 'light' }} mode </n-button>
     <h1>Components Showcase</h1>
     <section class="component-section">
@@ -58,10 +60,19 @@ const modal2 = ref<InstanceType<typeof NModal>>();
                         <NModal ref="modal2">
                             <template #modal-header> Modal Header </template>
                             <template #modal-body>
-                                <h1>Modal Body</h1>
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, quod! Ducimus soluta vel quod quas assumenda ea porro quibusdam fuga quasi at ipsa repellat error
+                                    possimus, voluptatibus voluptates, perspiciatis culpa molestiae esse animi facere libero ut. Ratione nihil tempora porro delectus natus autem culpa, magni nostrum
+                                    consequuntur, ullam minus veniam itaque reprehenderit nam cumque, praesentium deleniti velit incidunt provident accusamus architecto dolore placeat excepturi sint.
+                                    Nemo quisquam quam ducimus delectus, consequatur consequuntur quis. Voluptatibus iste veniam sapiente architecto quae eligendi, eveniet quaerat ipsa corporis, ipsum
+                                    alias molestiae magnam accusantium illum fuga fugit. Ipsa adipisci id quas dignissimos qui vitae assumenda.
+                                </p>
                             </template>
                             <template #modal-footer>
-                                <h1>Modal Footer</h1>
+                                <div style="display: flex; align-items: center; gap: 1rem">
+                                    <NButton mode="text" color="danger">Cancel</NButton>
+                                    <NButton>Submit</NButton>
+                                </div>
                             </template>
                         </NModal>
                     </template>

@@ -1,12 +1,10 @@
-import {App} from 'vue'
-import NCheckbox from "./NCheckbox.vue"
-
+import { App } from 'vue';
+import NCheckbox from './NCheckbox.vue';
 
 const NCheckboxPlugin = {
     install(app: App) {
-        app.component('n-switch', NCheckbox)
+        app.component('NCheckbox', NCheckbox);
     }
-}
+};
 
-
-export { NCheckbox, NCheckboxPlugin }
+export { NCheckbox, NCheckboxPlugin };

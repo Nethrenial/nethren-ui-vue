@@ -1,12 +1,10 @@
-import {App} from 'vue'
-import NModal from "./NModal.vue"
-
+import { App } from 'vue';
+import NModal from './NModal.vue';
 
 const NModalPlugin = {
     install(app: App) {
-        app.component('n-modal', NModal)
+        app.component('NModal', NModal);
     }
-}
+};
 
-
-export { NModal, NModalPlugin }
+export { NModal, NModalPlugin };
