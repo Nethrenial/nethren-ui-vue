@@ -229,7 +229,6 @@ function onOutSideClick() {
     justify-content: space-between;
     margin-top: -0.5rem;
     margin-bottom: 1rem;
-    background-color: red;
 }
 
 .n-modal-header .n-modal__close-btn svg {
@@ -242,10 +241,8 @@ function onOutSideClick() {
 }
 
 .n-modal-body {
-    background-color: yellow;
 }
 
 .n-modal-footer {
-    background-color: green;
 }
 </style>
