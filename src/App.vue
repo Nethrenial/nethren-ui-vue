@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { NButton, NSwitch, NCheckbox, NInput, NModal } from './components';
+import { NButton, NSwitch, NCheckbox, NInput, NModal, NTextarea } from './components';
 import ClosedEye from './components/builtin-icons/ClosedEye.vue';
 
 const isLoading = ref(false);
@@ -105,6 +105,7 @@ const modal2 = ref<InstanceType<typeof NModal>>();
                     <template #rightIcon> <ClosedEye /> </template
                 ></n-input>
                 <n-input v-model="inputs.input1" label="Input 5" id="input-5" name="input-5" />
+                <n-textarea v-model="inputs.input1" label="Textarea 1" id="input-7" name="input-7" />
                 <n-input v-model="inputs.input1" label="Input 6" id="input-6" name="input-6" type="password" :with-visibility-toggle="true" />
             </div>
         </div>

@@ -1,4 +1,4 @@
-import type { HTMLAttributes, LabelHTMLAttributes, InputHTMLAttributes, ReservedProps } from 'vue';
+import type { HTMLAttributes, LabelHTMLAttributes, InputHTMLAttributes, ReservedProps, TextareaHTMLAttributes } from 'vue';
 import { NColorPaletteKeyRaw } from '.';
 
 type SimpleSpread<L, R> = R & Pick<L, Exclude<keyof L, keyof R>>;
@@ -14,6 +14,7 @@ interface InputComponentProps extends ComponentProps {
 // Define Props
 export interface NComponentProps extends SimpleSpread<HTMLAttributes & ReservedProps, ComponentProps> {}
 export interface NInputComponentProps extends SimpleSpread<InputHTMLAttributes & ReservedProps, InputComponentProps> {}
+export interface NTextareaComponentProps extends SimpleSpread<TextareaHTMLAttributes & ReservedProps, InputComponentProps> {}
 
 // some useful element types
 
